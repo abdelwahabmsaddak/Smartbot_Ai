@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ 'ar' if lang=='ar' else ('hi' if lang=='hi' else 'en') }}" dir="{{ 'rtl' if lang=='ar' else 'ltr' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pricing – SmartBot AI Trader</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-wrap">
+      <div class="brand"><div class="logo"></div> SmartBot AI Trader</div>
+      <nav class="nav-links">
+        <a href="/?lang={{ lang }}">{{ 'الرئيسية' if lang=='ar' else ('मुख्य' if lang=='hi' else 'Home') }}</a>
+        <a href="/pricing?lang={{ lang }}">{{ 'الأسعار' if lang=='ar' else ('मूल्य' if lang=='hi' else 'Pricing') }}</a>
+        <a href="/login?lang={{ lang }}">{{ 'تسجيل الدخول' if lang=='ar' else ('लॉगिन' if lang=='hi' else 'Login') }}</a>
+      </nav>
+      <div class="spacer"></div>
+      <div class="links small">
+        <a href="/pricing?lang=en">English</a> • <a href="/pricing?lang=ar">العربية</a> • <a href="/pricing?lang=hi">हिन्दी</a>
+      </div>
+      <a class="btn" href="/pricing?lang={{ lang }}&start=trial">{{ 'جرّب مجانًا' if lang=='ar' else ('मुफ़्त आज़माएँ' if lang=='hi' else 'Try Free') }}</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 style="margin:0 0 8px">
+      {{ 'الأسعار والباقات' if lang=='ar' else ('प्लान व मूल्य' if lang=='hi' else 'Plans & Pricing') }}
+    </h1>
+    <p class="help">
+      {{ 'ابدأ مجانًا ثم ارتقِ للميزات الاحترافية متى احتجت.' if lang=='ar' else 
+         ('मुफ़्त शुरू करें और ज़रूरत पड़ते ही प्रो फीचर्स लें।' if lang=='hi' else 
+          'Start free and upgrade to pro features anytime.') }}
+    </p>
+
+    <section class="plans" style="margin-top:16px">
+      <!-- Free -->
+      <div class="plan">
+        <h3>{{ 'مجاني' if lang=='ar' else ('नि:शुल्क' if lang=='hi' else 'Free') }}</h3>
+        <div class="price">$0</div>
+        <ul class="features">
+          <li>{{ 'أسعار لحظية + محرك بحث' if lang=='ar' else ('लाइव प्राइस + खोज' if lang=='hi' else 'Live prices + search') }}</li>
+          <li>{{ 'تحليل أساسي (اتجاه/SMA/RSI)' if lang=='ar' else ('बेसिक विश्लेषण (ट्रेंड/SMA/RSI)' if lang=='hi' else 'Basic analysis (trend/SMA/RSI)') }}</li>
+          <li>{{ 'تدوينات يومية مختصرة' if lang=='ar' else ('दैनिक पोस्ट (संक्षेप)' if lang=='hi' else 'Short daily posts') }}</li>
+        </ul>
+        <a class="btn" href="/login?lang={{ lang }}">{{ 'ابدأ مجانًا' if lang=='ar' else ('मुफ़्त शुरू करें' if lang=='hi' else 'Start Free') }}</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="plan" style="border-width:2px">
+        <h3>Pro</h3>
+        <div class="price">$19<span class="help">{{ '/شهر' if lang=='ar' else ('/माह' if lang=='hi' else '/mo') }}</span></div>
+        <ul class="features">
+          <li>{{ 'تنبيهات فورية لإشارات الشراء/البيع' if lang=='ar' else ('तुरंत खरीद/बिक्री अलर्ट' if lang=='hi' else 'Instant buy/sell alerts') }}</li>
+          <li>{{ 'تقارير PDF موجزة' if lang=='ar' else ('संक्षिप्त PDF रिपोर्ट' if lang=='hi' else 'Concise PDF reports') }}</li>
+          <li>{{ 'أولوية دعم' if lang=='ar' else ('प्राथमिकता सहायता' if lang=='hi' else 'Priority support') }}</li>
+        </ul>
+        <a class="btn" href="/login?lang={{ lang }}">{{ 'اشترك الآن' if lang=='ar' else ('अभी सदस्यता लें' if lang=='hi' else 'Subscribe') }}</a>
+      </div>
+
+      <!-- Premium -->
+      <div class="plan">
+        <h3>Premium</h3>
+        <div class="price">$29<span class="help">{{ '/شهر' if lang=='ar' else ('/माह' if lang=='hi' else '/mo') }}</span></div>
+        <ul class="features">
+          <li>{{ 'نماذج تنبؤية واحتمالات حركة' if lang=='ar' else ('पूर्वानुमान मॉडल व संभावनाएँ' if lang=='hi' else 'Predictive models & probabilities') }}</li>
+          <li>{{ 'باكتيست وتقارير أداء مفصلة' if lang=='ar' else ('बैकटेस्ट व विस्तृत परफ़ॉरमेंस रिपोर्ट' if lang=='hi' else 'Backtests & detailed performance') }}</li>
+          <li>{{ 'وصول API + تنبيهات متقدمة' if lang=='ar' else ('API एक्सेस + उन्नत अलर्ट' if lang=='hi' else 'API access + advanced alerts') }}</li>
+        </ul>
+        <a class="btn" href="/login?lang={{ lang }}">{{ 'اشترك الآن' if lang=='ar' else ('अभी सदस्यता लें' if lang=='hi' else 'Subscribe') }}</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
