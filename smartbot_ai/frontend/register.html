@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ 'إنشاء حساب' if lang=='ar' else 'Create Account' }}</h2>
+<form method="post" action="/auth/register" class="form">
+  <label>{{ 'الاسم' if lang=='ar' else 'Name' }}</label>
+  <input name="name" required/>
+  <label>{{ 'البريد الإلكتروني' if lang=='ar' else 'Email' }}</label>
+  <input name="email" type="email" required/>
+  <label>{{ 'كلمة المرور' if lang=='ar' else 'Password' }}</label>
+  <input name="password" type="password" minlength="6" required/>
+  <button class="btn primary" type="submit">{{ 'سجّل الآن' if lang=='ar' else 'Register' }}</button>
+</form>
+
+<div class="oauth">
+  <a class="btn outline" href="/auth/google/login">Continue with Google</a>
+</div>
+{% endblock %}
