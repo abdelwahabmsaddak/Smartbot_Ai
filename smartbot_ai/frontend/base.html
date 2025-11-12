@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="{{ 'ar' if lang=='ar' else 'en' }}" dir="{{ 'rtl' if lang=='ar' else 'ltr' }}">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+<a href="/analyze?lang={{lang}}">{{ 'تحليل العملات' if lang=='ar' else 'Analyze' }}</a>
+  <title>{{ request.app.title }}</title>
+  <meta name="description" content="SmartBot AI — منصة تداول ذكي بالذكاء الاصطناعي: تحليلات، تداول آلي، ومقالات.">
+  <link rel="stylesheet" href="/static/style.css"/>
+  <style>
+    .ticker {background:#0e1530;border-bottom:1px solid #1d2540;color:#cfe2ff;white-space:nowrap;overflow:hidden;}
+    .ticker-inner {display:inline-block;padding:8px 0;animation:slideX 30s linear infinite;}
+    @keyframes slideX {0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .ticker .item{display:inline-block;margin:0 20px}
+    .up{color:#16c784}.down{color:#ea3943}
+  </style>
+</head>
+<body>
+<!-- شريط أسعار العملات -->
+<div class="ticker">
+  <div id="ticker" class="ticker-inner">
+    <span class="item">Loading prices…</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="brand"><a href="/?lang={{lang}}">{{ request.app.title }}</a></div>
+  <nav>
+    <a href="/?lang={{lang}}">{{ 'الرئيسية' if lang=='ar' else 'Home' }}</a>
+    <a href="/about?lang={{lang}}">{{ 'من نحن' if lang=='ar' else 'About' }}</a>
+    <a href="/blog?lang={{lang}}">Blog</a>
+    <a href="/pricing?lang={{lang}}">{{ 'الأسعار' if lang=='ar' else 'Pricing' }}</a>
+    <a href="/terms?lang={{lang}}">{{ 'الشروط' if lang=='ar' else 'Terms' }}</a>
+    <a href="/privacy?lang={{lang}}">{{ 'الخصوصية' if lang=='ar' else 'Privacy' }}</a>
+    <a class="btn" href="/login?lang={{lang}}">{{ 'تسجيل الدخول' if lang=='ar' else 'Login' }}</a>
+    <a class="btn primary" href="/register?lang={{lang}}">{{ 'جرّب مجاناً' if lang=='ar' else 'Try Free' }}</a>
+  </nav>
+</header>
+
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+  <div>© {{ request.app.title }} – All rights reserved.</div>
+</footer>
+
+<script>
+async function loadTicker(){
+  try{
+    // CoinGecko API (بدون مفتاح)
+    const ids = ['bitcoin','ethereum','tether','solana','binancecoin','dogecoin','toncoin'];
+    const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids='+ids.join(',')+'&price_change_percentage=24h';
+    const r = await fetch(url);
+    const data = await r.json();
+    const html = data.map(c=>{
+      const ch = c.price_change_percentage_24h || 0;
+      const cls = ch>=0 ? 'up' : 'down';
+      return `<span class="item">${c.symbol.toUpperCase()} $${c.current_price.toLocaleString()} <span class="${cls}">${ch.toFixed(2)}%</span></span>`;
+    }).join('');
+    const el = document.getElementById('ticker');
+    el.innerHTML = html + html; // مضاعفة المحتوى للتمرير المستمر
+  }catch(e){
+    document.getElementById('ticker').innerHTML = '<span class="item">Ticker error</span>';
+  }
+}
+loadTicker();
+setInterval(loadTicker, 60000); // تحديث كل 60 ثانية
+</script>
+</body>
+  </html>
+    
