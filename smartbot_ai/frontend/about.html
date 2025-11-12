@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ 'من نحن' if lang=='ar' else 'About' }}</h1>
+<p class="lead">
+  {{ 'SmartBot AI منصة تداول ذكية بالذكاء الاصطناعي، توفر تحليلات وإشارات وتداول آلي بواجهة بسيطة.' 
+     if lang=='ar' else 
+     'SmartBot AI is an AI-driven trading platform offering analysis, signals, and auto-trading with a simple UI.' }}
+</p>
+
+<section class="cards">
+  <article class="card">
+    <h3>{{ 'مهمتنا' if lang=='ar' else 'Our Mission' }}</h3>
+    <p>{{ 'تمكين الجميع من أدوات تداول احترافية مدعومة بالذكاء الاصطناعي.' if lang=='ar' else 'Empower everyone with pro AI trading tools.' }}</p>
+  </article>
+  <article class="card">
+    <h3>{{ 'قيمنا' if lang=='ar' else 'Values' }}</h3>
+    <p>{{ 'الشفافية، الأمان، الأداء.' if lang=='ar' else 'Transparency, Security, Performance.' }}</p>
+  </article>
+  <article class="card">
+    <h3>Tech</h3>
+    <p>FastAPI, Python, SQLite, OAuth, Telegram, OpenAI.</p>
+  </article>
+</section>
+{% endblock %}
