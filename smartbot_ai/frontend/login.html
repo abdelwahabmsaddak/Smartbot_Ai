@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ 'ar' if lang=='ar' else ('hi' if lang=='hi' else 'en') }}" dir="{{ 'rtl' if lang=='ar' else 'ltr' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ 'تسجيل الدخول' if lang=='ar' else ('लॉगिन' if lang=='hi' else 'Sign in') }} – SmartBot AI Trader</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-wrap">
+      <div class="brand"><div class="logo"></div> SmartBot AI Trader</div>
+      <div class="spacer"></div>
+      <div class="links small">
+        <a href="/login?lang=en">English</a> • <a href="/login?lang=ar">العربية</a> • <a href="/login?lang=hi">हिन्दी</a>
+      </div>
+      <a class="btn ghost" href="/pricing?lang={{ lang }}">{{ 'الأسعار' if lang=='ar' else ('मूल्य' if lang=='hi' else 'Pricing') }}</a>
+      <a class="btn" href="/pricing?lang={{ lang }}&start=trial">{{ 'جرّب مجانًا' if lang=='ar' else ('मुफ़्त आज़माएँ' if lang=='hi' else 'Try Free') }}</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="form card">
+      <h1 style="margin-top:0">
+        {{ 'تسجيل الدخول' if lang=='ar' else ('लॉगिन' if lang=='hi' else 'Sign in') }}
+      </h1>
+      <p class="help" style="margin:6px 0 16px">
+        {{ 'أدخل بريدك الإلكتروني وكلمة المرور للمتابعة.' if lang=='ar' else 
+           ('जारी रखने के लिए अपना ईमेल और पासवर्ड दर्ज करें।' if lang=='hi' else 
+            'Enter your email and password to continue.') }}
+      </p>
+
+      <form method="post" action="/login?lang={{ lang }}">
+        <div class="row">
+          <div class="label">{{ 'البريد الإلكتروني' if lang=='ar' else ('ईमेल' if lang=='hi' else 'Email') }}</div>
+          <input class="input" type="email" name="email" required placeholder="{{ 'you@example.com' }}">
+        </div>
+        <div class="row">
+          <div class="label">{{ 'كلمة المرور' if lang=='ar' else ('कुंजिका' if lang=='hi' else 'Password') }}</div>
+          <input class="input" type="password" name="password" required placeholder="••••••••">
+        </div>
+        <div class="row" style="display:flex;gap:10px;align-items:center">
+          <button class="btn" type="submit">{{ 'تسجيل الدخول' if lang=='ar' else ('लॉगिन' if lang=='hi' else 'Sign in') }}</button>
+          <a class="btn ghost" href="/pricing?lang={{ lang }}">{{ 'إنشاء حساب' if lang=='ar' else ('खाता बनाएं' if lang=='hi' else 'Create account') }}</a>
+        </div>
+        <p class="help" style="margin-top:10px">
+          <a href="#">{{ 'نسيت كلمة المرور؟' if lang=='ar' else ('पासवर्ड भूल गए?' if lang=='hi' else 'Forgot password?') }}</a>
+        </p>
+      </form>
+    </div>
+  </main>
+</body>
+          </html>
+  
