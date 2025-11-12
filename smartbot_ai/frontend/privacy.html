@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ 'سياسة الخصوصية' if lang=='ar' else 'Privacy Policy' }}</h1>
+<div class="card">
+  <p>{{ 'نحترم خصوصيتك. نجمع بيانات الحد الأدنى اللازمة لتشغيل الخدمة (مثل البريد الإلكتروني) ونحفظ كلمات المرور مشفرة. لا نبيع بياناتك لطرف ثالث.' if lang=='ar' else 'We respect your privacy. We collect minimal data (e.g., email) to operate the service and store passwords hashed. We do not sell your data.' }}</p>
+  <p>{{ 'قد نستخدم ملفات تعريف الارتباط لتحسين التجربة. يمكنك طلب حذف حسابك وبياناتك.' if lang=='ar' else 'We may use cookies to improve UX. You can request account/data deletion.' }}</p>
+</div>
+{% endblock %}
