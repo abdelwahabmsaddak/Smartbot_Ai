@@ -1,0 +1,54 @@
+{
+  "en": {
+    "hero_title": "Automated Crypto Trading & Smart Analysis",
+    "hero_sub": "Let AI analyze coins and execute strategies for you.",
+    "cta_chat": "Start Chatting Now",
+    "cta_auto": "Join Auto-Trading",
+    "ticker_title": "Trending Coins (Daily)",
+    "register_title": "Create your account",
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Telegram phone",
+    "register": "Register",
+    "blog_title": "Latest Articles"
+  },
+  "ar": {
+    "hero_title": "تداول آلي وتحليل ذكي للعملات الرقمية",
+    "hero_sub": "دع الذكاء الاصطناعي يحلل العملات وينفذ الاستراتيجيات نيابةً عنك.",
+    "cta_chat": "ابدأ الدردشة الآن",
+    "cta_auto": "سجّل في التداول الآلي",
+    "ticker_title": "عملات رائجة اليوم",
+    "register_title": "أنشئ حسابك",
+    "name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "phone": "رقم التلغرام",
+    "register": "تسجيل",
+    "blog_title": "أحدث المقالات"
+  },
+  "hi": {
+    "hero_title": "स्वचालित क्रिप्टो ट्रेडिंग और स्मार्ट विश्लेषण",
+    "hero_sub": "AI आपके लिए कॉइनों का विश्लेषण कर रणनीतियाँ निष्पादित करे।",
+    "cta_chat": "अभी चैट शुरू करें",
+    "cta_auto": "ऑटो-ट्रेडिंग से जुड़ें",
+    "ticker_title": "ट्रेंडिंग कॉइन्स (दैनिक)",
+    "register_title": "अपना खाता बनाएँ",
+    "name": "पूरा नाम",
+    "email": "ईमेल",
+    "phone": "टेलीग्राम फोन",
+    "register": "रजिस्टर",
+    "blog_title": "नवीनतम लेख"
+  },
+  "ja": {
+    "hero_title": "自動暗号資産取引とスマート分析",
+    "hero_sub": "AIがコインを分析し、戦略を実行します。",
+    "cta_chat": "今すぐチャット",
+    "cta_auto": "自動取引に参加",
+    "ticker_title": "注目コイン（毎日）",
+    "register_title": "アカウント作成",
+    "name": "氏名",
+    "email": "メール",
+    "phone": "テレグラム電話番号",
+    "register": "登録",
+    "blog_title": "最新記事"
+  }
+}
