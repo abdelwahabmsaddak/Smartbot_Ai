@@ -1,9 +1,10 @@
+
 import os
 from flask import Flask, send_from_directory
 
-# نحسب المسارات بدقة
+# حساب المسارات
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-FRONTEND_DIR = os.path.join(BASE_DIR, "../frontend")
+FRONTEND_DIR = os.path.join(BASE_DIR, "../smartbot_ai/frontend")
 ASSETS_DIR = os.path.join(FRONTEND_DIR, "assets")
 
 app = Flask(__name__)
