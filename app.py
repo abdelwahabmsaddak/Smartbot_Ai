@@ -1,41 +1,33 @@
 import os
 from flask import Flask, send_from_directory
 
-# مسار المشروع على Render
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-# الآن نذهب إلى مجلد Smartbot_Ai مباشرة
-PROJECT_DIR = os.path.join(BASE_DIR, "..")  # نصعد مستوى واحد
-FRONTEND_DIR = os.path.join(PROJECT_DIR, "frontend")
-ASSETS_DIR = os.path.join(FRONTEND_DIR, "assets")
-
 app = Flask(__name__)
 
-# =========================
-# الصفحة الرئيسية index.html
-# =========================
+# ============ مسارات صحيحة ============
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
+ASSETS_DIR = os.path.join(FRONTEND_DIR, "assets")
+
+# ============ الصفحة الرئيسية ============
 @app.route('/')
 def index():
     return send_from_directory(FRONTEND_DIR, "index.html")
 
-# =========================
-# تقديم الصفحات الأخرى
-# =========================
+# ============ باقي الصفحات ============
 @app.route('/<path:path>')
 def serve_page(path):
     file_path = os.path.join(FRONTEND_DIR, path)
+
     if os.path.exists(file_path):
         return send_from_directory(FRONTEND_DIR, path)
     else:
         return "404 - Page Not Found", 404
 
-# =========================
-# تقديم ملفات assets (css, js, images)
-# =========================
+# ============ ملفات assets ============
 @app.route('/assets/<path:path>')
 def serve_assets(path):
     return send_from_directory(ASSETS_DIR, path)
 
-# تشغيل السيرفر على Render
+# ============ تشغيل Render ============
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
