@@ -1,25 +1,26 @@
 import os
 from flask import Flask, send_from_directory
 
-# حساب مسار المشروع
+# مسار المشروع على Render
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# ⚠️ المسار الصحيح إلى الفرونت داخل GitHub
-FRONTEND_DIR = os.path.join(BASE_DIR, "../Smartbot_Ai/frontend")
+# الآن نذهب إلى مجلد Smartbot_Ai مباشرة
+PROJECT_DIR = os.path.join(BASE_DIR, "..")  # نصعد مستوى واحد
+FRONTEND_DIR = os.path.join(PROJECT_DIR, "frontend")
 ASSETS_DIR = os.path.join(FRONTEND_DIR, "assets")
 
 app = Flask(__name__)
 
-# ============================
-# صفحة الهوم index.html
-# ============================
+# =========================
+# الصفحة الرئيسية index.html
+# =========================
 @app.route('/')
 def index():
     return send_from_directory(FRONTEND_DIR, "index.html")
 
-# ============================
-# تقديم صفحات HTML الأخرى
-# ============================
+# =========================
+# تقديم الصفحات الأخرى
+# =========================
 @app.route('/<path:path>')
 def serve_page(path):
     file_path = os.path.join(FRONTEND_DIR, path)
@@ -28,15 +29,13 @@ def serve_page(path):
     else:
         return "404 - Page Not Found", 404
 
-# ============================
-# تقديم ملفات assets (css/js/images)
-# ============================
+# =========================
+# تقديم ملفات assets (css, js, images)
+# =========================
 @app.route('/assets/<path:path>')
 def serve_assets(path):
     return send_from_directory(ASSETS_DIR, path)
 
-# ============================
-# تشغيل السيرفر
-# ============================
+# تشغيل السيرفر على Render
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
