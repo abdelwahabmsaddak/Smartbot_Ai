@@ -1,39 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AI Blog — SmartBot</title>
-  <link rel="stylesheet" href="assets/style.css" />
+    <meta charset="UTF-8">
+    <title>المدونة – SmartBot</title>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo">🤖</div>
-      <div class="brand-text">SmartBot <span>AI Trader</span></div>
-    </div>
-    <div class="top-actions">
-      <a href="index.html" class="btn ghost">الصفحة الرئيسية</a>
-    </div>
-  </header>
 
-  <main class="container blog">
-    <article id="post1" class="card">
-      <h1>لماذا ارتفع BTC اليوم؟ ٣ أسباب</h1>
-      <p class="muted">سيولة–زخم–أخبار...</p>
-      <p>نلخّص أهم الدوافع مع مستويات الدعم/المقاومة والتوقعات قصيرة الأجل.</p>
-    </article>
+<header class="header">
+    <div class="container">
+        <div class="logo">SmartBot <span>AI Trader</span></div>
 
-    <article id="post2" class="card">
-      <h1>هل FLOKI على وشك الاختراق؟</h1>
-      <p>القناة الصاعدة تقترب من كسر؛ نراقب أحجام التداول وRSI…</p>
-    </article>
-  </main>
-
-  <footer class="footer">
-    <div class="container foot">
-      <a href="index.html" class="btn">عودة</a>
+        <nav class="nav">
+            <a href="index.html">الرئيسية</a>
+            <a href="pricing.html">الأسعار</a>
+        </nav>
     </div>
-  </footer>
+</header>
+
+<div class="container" style="margin-top:30px;">
+    <h1>المدونة الذكية</h1>
+
+    <button onclick="generateBlog()">إنشاء تدوينة جديدة</button>
+
+    <div id="blogList"></div>
+</div>
+
+<script>
+function generateBlog() {
+    fetch("/api/blog", { method:"POST" })
+    .then(r=>r.json())
+    .then(data=>{
+        document.getElementById("blogList").innerHTML += `
+            <div class="post">
+                <h3>${data.title}</h3>
+                <p>${data.content}</p>
+            </div>
+        `;
+    })
+}
+</script>
+
 </body>
 </html>
