@@ -1,4 +1,4 @@
-services:
+   services:
   - type: web
     name: smartbot-ai
     env: python
@@ -6,4 +6,4 @@ services:
     startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: FLASK_ENV
-        value: production       
+        value: production    
