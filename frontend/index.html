@@ -1,300 +1,161 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartBot AI Trader - تحليل ذكي، تداول آمن</title>
-  <link rel="stylesheet" href="assets/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBot AI Trader – تحليل ذكي</title>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
-  <!-- شريط الأسعار المتحرك -->
-  <div class="ticker-bar">
-    <div class="ticker-inner">
-      <span>S&amp;P 500  🔹  5,120.32  +0.84%</span>
-      <span>NASDAQ  🔹  16,420.11  +1.12%</span>
-      <span>DOW JONES  🔹  38,520.90  +0.45%</span>
-      <span>BTC/USDT  🔹  67,250.00  -0.32%</span>
-      <span>ETH/USDT  🔹  3,120.50  +0.15%</span>
+
+    <!-- ======================== NAVBAR ======================== -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">SmartBot <span>AI Trader</span></div>
+
+            <nav class="nav">
+                <a href="#start">ابدأ الآن</a>
+                <a href="faq.html">الأسئلة الشائعة</a>
+                <a href="blog.html">المدونة</a>
+                <a href="pricing.html">الأسعار</a>
+                <a href="how_it_works.html">كيف يعمل</a>
+                <a href="contact.html">اتصل بنا</a>
+            </nav>
+
+            <a href="login.html" class="btn-login">دخول</a>
+        </div>
+    </header>
+
+    <!-- ======================== MARKET BAR ======================== -->
+    <div class="market-bar">
+        <span>BTC  • <span id="btc_price">--</span></span>
+        <span>ETH  • <span id="eth_price">--</span></span>
+        <span>Gold  • <span id="gold_price">--</span></span>
+        <span>S&P500  • <span id="sp_price">--</span></span>
     </div>
-  </div>
 
-  <!-- رأس الموقع -->
-  <header class="main-header">
-    <div class="container header-content">
-      <div class="logo">
-        <span class="logo-icon">🤖</span>
-        <span class="logo-text">
-          SmartBot <span>AI Trader</span>
-        </span>
-      </div>
+    <!-- ======================== HERO SECTION ======================== -->
+    <section class="hero">
+        <div class="container">
+            <h1>
+                تحليل ذكي – تداول آمن  
+                <br>  
+                نتائج فورية
+            </h1>
 
-      <nav class="main-nav">
-<a href="index.html">ابدأ الآن</a>
-<a href="faq.html">الأسئلة الشائعة</a>
-<a href="blog.html">المدونة الذكية</a>
-<a href="pricing.html">الأسعار</a>
-<a href="how_it_works.html">كيف يعمل</a>
-<a href="features.html">المميزات</a>
-      </nav>
+            <p class="hero-text">
+                SmartBot AI Trader هو نظام تحليل وتداول ذكي يعمل بالذكاء الاصطناعي  
+                لتحليل الأسواق لحظة بلحظة وإعطائك إشارات تداول دقيقة.
+            </p>
 
-      <button class="menu-toggle" id="menuToggle">☰</button>
+            <a href="register.html" class="btn-primary">جرّب الخطة المجانية الآن</a>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ابحث عن عملة – سهم – ذهب…">
+                <button onclick="startSearch()">بحث</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== AI SECTIONS ======================== -->
+    <section class="ai-sections container">
+
+        <div class="box">
+            <i class="fa-solid fa-coins icon"></i>
+            <h3>تحليل العملات الرقمية</h3>
+            <p>تحليل آلي لأكثر من 200 عملة مع توقعات دقيقة.</p>
+            <a href="analyze.html">ابدأ التحليل</a>
+        </div>
+
+        <div class="box">
+            <i class="fa-solid fa-chart-line icon"></i>
+            <h3>تحليل الذهب والأسهم</h3>
+            <p>تحليل احترافي لحركة الذهب والأسهم العالمية.</p>
+            <a href="analyze_gold.html">حلل الآن</a>
+        </div>
+
+        <div class="box">
+            <i class="fa-solid fa-fish-fins icon"></i>
+            <h3>تتبع الحيتان</h3>
+            <p>تعرف على الضخ الكبير وعمليات البيع الضخمة.</p>
+            <a href="whales.html">تتبع الآن</a>
+        </div>
+
+    </section>
+
+    <!-- ======================== BLOG PREVIEW ======================== -->
+    <section class="blog-preview container">
+        <h2>آخر التدوينات الذكية</h2>
+
+        <div class="posts">
+            <div class="post">
+                <h4>تحليل BTC اليوم</h4>
+                <p>الذكاء الاصطناعي يتوقع حركة صعود قوية...</p>
+            </div>
+            <div class="post">
+                <h4>أفضل فرص السوق</h4>
+                <p>هذه 3 عملات جاهزة للانفجار حسب النظام...</p>
+            </div>
+            <div class="post">
+                <h4>الذهب إلى أين؟</h4>
+                <p>تحليل جديد لحركة الذهب في الأسبوع القادم...</p>
+            </div>
+        </div>
+
+        <a class="btn-secondary" href="blog.html">عرض جميع التدوينات</a>
+    </section>
+
+    <!-- ======================== PRICING ======================== -->
+    <section class="pricing container">
+        <h2>اختر خطتك</h2>
+
+        <div class="plans">
+
+            <div class="plan">
+                <h3>الخطة الأساسية</h3>
+                <div class="price">19$</div>
+                <p>تحليل العملات الرقمية فقط</p>
+                <a href="payment.html" class="btn-primary">اشترك الآن</a>
+            </div>
+
+            <div class="plan popular">
+                <h3>الخطة المتقدمة</h3>
+                <div class="price">29$</div>
+                <p>تحليل الأسهم + الذهب + العملات</p>
+                <a href="payment.html" class="btn-primary">اشترك الآن</a>
+            </div>
+
+            <div class="plan">
+                <h3>الخطة الشاملة</h3>
+                <div class="price">39$</div>
+                <p>كل الميزات + تتبع الحيتان</p>
+                <a href="payment.html" class="btn-primary">اشترك الآن</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================== CHATBOT ======================== -->
+    <div class="chatbot" id="chatbot">
+        <div class="chat-header" onclick="toggleChat()">
+            <span>SmartBot Assistant 🤖</span>
+        </div>
+        <div class="chat-body" id="chatBody"></div>
+
+        <div class="chat-input">
+            <input id="chatInput" placeholder="اكتب سؤالك...">
+            <button onclick="sendMessage()">إرسال</button>
+        </div>
     </div>
-  </header>
 
-  <!-- قائمة الموبايل -->
-  <nav class="mobile-nav" id="mobileNav">
-  <a href="index.html">ابدأ الآن</a>
-<a href="faq.html">الأسئلة الشائعة</a>
-<a href="blog.html">المدونة الذكية</a>
-<a href="pricing.html">الأسعار</a>
-<a href="how_it_works.html">كيف يعمل</a>
-<a href="features.html">المميزات</a>
-  </nav>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chatbot.js"></script>
 
-  <!-- الهيرو: العنوان العلوي العريض -->
-  <section class="hero" id="start">
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <h1>
-          تحليل ذكي – تداول آمن – نتائج فورية
-        </h1>
-        <p>
-          SmartBot AI Trader هو روبوت تداول يعمل بالذكاء الاصطناعي لتحليل
-          الأسواق 24/7، واكتشاف الفرص، وإرسال إشارات تداول دقيقة مع
-          إدارة مخاطر ذكية.
-        </p>
-        <div class="hero-actions">
-          <a href="#pricing" class="btn btn-primary">جرِّب الخطة المجانية الآن</a>
-          <a href="#how" class="btn btn-outline">شاهد كيف يعمل الروبوت</a>
-        </div>
-
-        <div class="hero-badges">
-          <span>⚡ إشارات فورية</span>
-          <span>🧠 تحليل بالذكاء الاصطناعي</span>
-          <span>🛡 إدارة مخاطر ذكية</span>
-        </div>
-      </div>
-
-      <div class="hero-card">
-        <div class="bot-icon">🤖</div>
-        <h3>Smart AI Engine</h3>
-        <p>
-          محرّك ذكاء اصطناعي يتابع أكثر من 100 عملة وأسهم في نفس الوقت،
-          ويقترح أفضل نقاط الدخول والخروج.
-        </p>
-        <ul>
-          <li>تنبيهات فورية على التلغرام / البريد</li>
-          <li>استراتيجيات جاهزة للمبتدئين والمحترفين</li>
-          <li>لوحة تحكم توضح أداء كل إشارة</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- المميزات -->
-  <section class="section" id="features">
-    <div class="container">
-      <h2 class="section-title">لماذا SmartBot AI Trader؟</h2>
-      <p class="section-subtitle">
-        كل ما تحتاجه لتحويل قرارات التداول من عشوائية إلى خطة واضحة مبنية على بيانات حقيقية.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>تحليل لحظي للأسواق</h3>
-          <p>الروبوت يراقب السوق 24/7 ويحدّث التقييمات بشكل مستمر.</p>
-        </div>
-        <div class="card">
-          <h3>إدارة مخاطر ذكية</h3>
-          <p>اقتراح حجم الصفقة، وقف الخسارة، وأهداف الربح لكل إشارة.</p>
-        </div>
-        <div class="card">
-          <h3>دعم الاستراتيجيات المختلفة</h3>
-          <p>تداول يومي، سوينغ، واستثمار طويل الأجل – الروبوت يتأقلم مع أسلوبك.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- كيف يعمل -->
-  <section class="section section-alt" id="how">
-    <div class="container">
-      <h2 class="section-title">كيف يعمل SmartBot؟</h2>
-      <div class="steps">
-        <div class="step">
-          <span class="step-number">1</span>
-          <h3>تربط حسابك أو محفظتك</h3>
-          <p>تربط المنصة ببورصة العملات أو حساب التداول الخاص بك بشكل آمن.</p>
-        </div>
-        <div class="step">
-          <span class="step-number">2</span>
-          <h3>تختار الخطة والاستراتيجية</h3>
-          <p>تحدد درجة المخاطرة، الأصول المفضلة، ونوع التداول.</p>
-        </div>
-        <div class="step">
-          <span class="step-number">3</span>
-          <h3>الروبوت يبدأ العمل</h3>
-          <p>تحليل، توليد إشارات، وإرسال تنبيهات أو تنفيذ تلقائي حسب إعداداتك.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- الأسعار -->
-  <section class="section" id="pricing">
-    <div class="container">
-      <h2 class="section-title">الأسعار</h2>
-      <p class="section-subtitle">
-        جرِّب الخطة المجانية، ثم اختر الخطة المناسبة لحجم تداولك.
-      </p>
-
-      <div class="pricing-grid">
-        <div class="price-card">
-          <h3>خطة مجانية</h3>
-          <p class="price">0$ / شهر</p>
-          <ul>
-            <li>إشارات محدودة يوميًا</li>
-            <li>دعم عبر البريد</li>
-            <li>لوحة تحكم أساسية</li>
-          </ul>
-          <a href="#start" class="btn btn-outline">ابدأ مجانًا</a>
-        </div>
-
-        <div class="price-card price-card-featured">
-          <h3>خطة متداول جاد</h3>
-          <p class="price">49$ / شهر</p>
-          <ul>
-            <li>جميع الإشارات بدون حدود</li>
-            <li>استراتيجيات متقدمة</li>
-            <li>دعم أولوية</li>
-          </ul>
-          <a href="#start" class="btn btn-primary">اشترك الآن</a>
-        </div>
-
-        <div class="price-card">
-          <h3>خطة برو</h3>
-          <p class="price">99$ / شهر</p>
-          <ul>
-            <li>كل شيء في الخطة الجادة</li>
-            <li>تخصيص استراتيجيات خاصة</li>
-            <li>دعم شخصي واحد لواحد</li>
-          </ul>
-          <a href="#start" class="btn btn-outline">تواصل معنا</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- المدونة الذكية (المستخدم يرى تدوينات فقط) -->
-  <section class="section section-alt" id="blog">
-    <div class="container">
-      <h2 class="section-title">المدونة الذكية</h2>
-      <p class="section-subtitle">
-        مقالات وتحديثات حول التداول المدعوم بالذكاء الاصطناعي، استراتيجيات، ونصائح عملية.
-      </p>
-
-      <div class="blog-grid">
-        <article class="blog-card">
-          <span class="blog-tag">تعليم</span>
-          <h3>كيف تستخدم روبوت التداول بدون خبرة سابقة؟</h3>
-          <p>
-            خطوات بسيطة لربط حسابك واختيار الاستراتيجية المناسبة لمستوى الخبرة لديك.
-          </p>
-          <a href="blog-start-with-bot.html" class="blog-link">قراءة المقال</a>
-        </article>
-
-        <article class="blog-card">
-          <span class="blog-tag">استراتيجية</span>
-          <h3>أفضل إعدادات لإدارة المخاطر في الأسواق المتقلبة</h3>
-          <p>
-            كيف يحدد SmartBot حجم الصفقة ونقاط الدخول والخروج لحماية رأس المال.
-          </p>
-          <a href="blog-risk-management.html" class="blog-link">قراءة المقال</a>
-        </article>
-
-        <article class="blog-card">
-          <span class="blog-tag">سوق العملات</span>
-          <h3>متى يكون السوق مناسبًا للتداول الآلي؟</h3>
-          <p>
-            إشارات تدل على أن الوقت مناسب لتفعيل الروبوت أو تخفيف المخاطرة.
-          </p>
-          <a href="blog-market-conditions.html" class="blog-link">قراءة المقال</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- الأسئلة الشائعة -->
-  <section class="section" id="faq">
-    <div class="container">
-      <h2 class="section-title">الأسئلة الشائعة</h2>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          هل يمكنني استخدام الروبوت بدون خبرة في التداول؟
-        </button>
-        <div class="faq-answer">
-          نعم، تم تصميم SmartBot AI Trader ليكون مناسبًا للمبتدئين،
-          مع إعدادات جاهزة واستراتيجيات مُقترحة.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          هل أحتاج إلى ترك الحاسوب شغالاً طوال الوقت؟
-        </button>
-        <div class="faq-answer">
-          لا، الروبوت يعمل على خوادمنا السحابية، ويمكنك متابعة النتائج من أي جهاز.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question">
-          هل أستطيع إيقاف الروبوت متى أردت؟
-        </button>
-        <div class="faq-answer">
-          نعم، يمكنك إيقاف أو تعديل الاستراتيجيات والإشعارات في أي وقت من لوحة التحكم.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- الفوتر -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 SmartBot AI Trader. جميع الحقوق محفوظة.</p>
-      <div class="footer-links">
-        <a href="#faq">الأسئلة الشائعة</a>
-        <a href="#pricing">الأسعار</a>
-        <a href="#blog">المدونة</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ويدجت الشات مثل المسنجر -->
-  <div class="chat-widget" id="chatWidget">
-    <button class="chat-toggle" id="chatToggle">
-      💬
-    </button>
-
-    <div class="chat-window" id="chatWindow">
-      <div class="chat-header">
-        <span>SmartBot Assistant</span>
-        <button class="chat-close" id="chatClose">×</button>
-      </div>
-      <div class="chat-body" id="chatBody">
-        <div class="chat-message bot">
-          مرحبًا 👋 أنا المساعد الذكي لـ SmartBot AI Trader. اسألني عن الخطط،
-          الأسعار أو طريقة عمل الروبوت.
-        </div>
-      </div>
-      <form class="chat-input" id="chatForm">
-        <input type="text" id="chatInputField" placeholder="اكتب سؤالك هنا..." />
-        <button type="submit">إرسال</button>
-      </form>
-    </div>
-  </div>
-
-  <script src="assets/app.js"></script>
 </body>
-</html>
+</html> 
