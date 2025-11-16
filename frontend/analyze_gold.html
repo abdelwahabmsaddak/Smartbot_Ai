@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تحليل الذهب والأسهم – SmartBot</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">SmartBot <span>AI Trader</span></div>
+
+        <nav class="nav">
+            <a href="index.html">الرئيسية</a>
+            <a href="pricing.html">الأسعار</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container" style="margin-top:30px;">
+    <h1>تحليل الذهب والأسهم</h1>
+
+    <select id="marketSelect">
+        <option value="gold">الذهب</option>
+        <option value="sp500">S&P 500</option>
+        <option value="nasdaq">NASDAQ</option>
+    </select>
+
+    <button onclick="analyzeGold()">تحليل</button>
+
+    <div id="goldResult" class="result-box"></div>
+</div>
+
+<script>
+function analyzeGold() {
+    const market = document.getElementById("marketSelect").value;
+
+    fetch("/api/analyze_gold", {
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({ market })
+    })
+    .then(r=>r.json())
+    .then(data=>{
+        document.getElementById("goldResult").innerHTML = `
+            <h3>الاتجاه: ${data.trend}</h3>
+            <p>${data.summary}</p>
+        `;
+    });
+}
+</script>
+
+</body>
+</html>
