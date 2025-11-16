@@ -1,170 +1,229 @@
-/* RESET */
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
-body { background: #f5f6fa; }
+/* ===========================
+   GLOBAL STYLE
+=========================== */
 
-/* HEADER */
-.header { background: #0b1b33; padding: 12px 0; position: sticky; top: 0; z-index: 999; }
-.header .container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-.logo { color: white; font-size: 26px; font-weight: bold; }
-.logo span { color: #e9b10a; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Tajawal", sans-serif;
+}
+
+body {
+    background: #f7f9fc;
+    color: #0a2342;
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.header {
+    background: #0a2342;
+    padding: 15px 0;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #f2b705;
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .nav a {
-    color: #fff; margin: 0 10px; text-decoration: none; font-size: 16px;
+    margin-right: 25px;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.3s;
 }
-.nav a:hover { color: #e9b10a; }
 
-/* LOGIN BUTTON */
+.nav a:hover {
+    color: #f2b705;
+}
+
 .btn-login {
-    background: #e9b10a; padding: 8px 18px; border-radius: 6px; color: #000;
-    font-weight: 700; text-decoration: none;
+    background: #f2b705;
+    color: #0a2342;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
 }
-.btn-login:hover { opacity: 0.9; }
 
-/* MARKET BAR */
+.btn-login:hover {
+    background: #d6a104;
+}
+
+/* ===========================
+   MARKET BAR
+=========================== */
+
 .market-bar {
-    background: #0d213f; color: white; padding: 8px;
-    white-space: nowrap; overflow-x: auto;
+    width: 100%;
+    background: #081c32;
+    color: #f2b705;
+    padding: 10px;
+    display: flex;
+    overflow-x: auto;
+    font-size: 15px;
+    gap: 30px;
+    white-space: nowrap;
 }
-.market-bar span { margin: 0 20px; }
 
-/* HERO */
+/* ===========================
+   HERO SECTION
+=========================== */
+
 .hero {
-    background: linear-gradient(to bottom, #0b1b33, #112544);
-    color: white; padding: 60px 0; text-align: center;
+    text-align: center;
+    padding: 70px 0;
+    background: linear-gradient(to left, #0a2342, #11345f);
+    color: #fff;
 }
-.hero-title { font-size: 34px; font-weight: 800; }
-.hero-text { margin-top: 12px; font-size: 18px; opacity: 0.9; }
 
-.btn-primary {
-    display: inline-block;
-    background: #e9b10a;
-    color: #111;
-    padding: 14px 30px;
-    margin-top: 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 800;
+.hero h1 {
+    font-size: 40px;
+    line-height: 1.5;
+}
+
+.hero-text {
+    margin: 15px auto;
+    width: 80%;
+    max-width: 600px;
     font-size: 18px;
 }
-.btn-primary:hover { transform: scale(1.03); }
 
-/* SEARCH BAR */
+.btn-primary {
+    background: #f2b705;
+    color: #0a2342;
+    padding: 12px 25px;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background: #d6a104;
+}
+
 .search-box {
-    margin: 30px auto;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
+    gap: 10px;
 }
+
 .search-box input {
-    width: 60%;
+    width: 300px;
     padding: 12px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
     outline: none;
 }
+
 .search-box button {
     padding: 12px 20px;
-    background: #e9b10a;
-    border: none;
-    border-radius: 6px;
-    font-weight: 700;
-}
-
-/* FEATURE BOXES */
-.ai-sections {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-    gap: 20px;
-    margin-top: 40px;
-}
-.box {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px #0001;
-}
-.box .icon {
-    font-size: 40px; color: #e9b10a; margin-bottom: 10px;
-}
-.box a { text-decoration: none; color: #0d213f; font-weight: 700; }
-
-/* BLOG PREVIEW */
-.blog-preview h2 {
-    text-align: center;
-    margin: 40px 0 10px;
-}
-.posts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 20px;
-}
-.post {
-    background: #fff;
-    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px #0001;
-}
-.post h4 { font-size: 20px; margin-bottom: 6px; }
-
-/* PRICING */
-.pricing h2 { text-align: center; margin: 40px 0; }
-.plans {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 20px;
-}
-.plan {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px #0001;
-}
-.plan.popular { border: 3px solid #e9b10a; }
-.price {
-    font-size: 34px;
-    margin: 10px 0;
-    color: #e9b10a;
-}
-
-/* CHATBOT */
-.chatbot {
-    position: fixed;
-    bottom: 15px;
-    left: 15px;
-    width: 320px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px #0003;
-    display: flex;
-    flex-direction: column;
-}
-.chat-header {
-    background: #0b1b33;
-    color: white;
-    padding: 10px;
+    border: none;
+    background: #f2b705;
+    color: #0a2342;
     font-weight: bold;
     cursor: pointer;
 }
+
+/* ===========================
+   CHATBOT
+=========================== */
+
+.chatbot {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 320px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #0002;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.chat-header {
+    background: #0a2342;
+    color: #fff;
+    padding: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
 .chat-body {
     height: 260px;
     overflow-y: auto;
     padding: 10px;
+    background: #f5f5f5;
 }
+
 .chat-input {
     display: flex;
-    padding: 10px;
+    border-top: 1px solid #ccc;
 }
+
 .chat-input input {
     flex: 1;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 8px;
-}
-.chat-input button {
-    background: #e9b10a;
-    margin-left: 8px;
-    padding: 8px 15px;
-    border-radius: 6px;
+    padding: 12px;
     border: none;
+    outline: none;
+}
+
+.chat-input button {
+    background: #f2b705;
+    color: #0a2342;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .chatbot {
+        width: 260px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
 }
