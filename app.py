@@ -1,127 +1,50 @@
-from flask import Flask, render_template, request, jsonify
 import os
-from market import get_prices
-from ai_engine import analyze_crypto, analyze_gold, analyze_stock
-from whales import get_whale_data
-from chatbot_engine import chat_ai
-from telegram_bot import telegram_send_message
+from flask import Flask, send_from_directory
 
-app = Flask(__name__, static_folder="assets", template_folder=".")
+# مسار المشروع
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
+ASSETS_DIR = os.path.join(FRONTEND_DIR, "assets")
 
-# ========================= ROUTES ========================= #
+# نطفي static الافتراضي ونستعمل المسارات متاعنا
+app = Flask(__name__, static_folder=None)
 
+# ================== الصفحة الرئيسية ==================
 @app.route("/")
-def home():
-    return render_template("index.html")
+def index():
+    # يرجع frontend/index.html
+    return send_from_directory(FRONTEND_DIR, "index.html")
 
-@app.route("/pricing")
-def pricing():
-    return render_template("pricing.html")
+# ================== الملفات الثابتة ==================
+@app.route("/assets/<path:filename>")
+def assets(filename):
+    # يرجع CSS / JS / صور من frontend/assets
+    return send_from_directory(ASSETS_DIR, filename)
 
-@app.route("/blog")
-def blog():
-    return render_template("blog.html")
+# ================== باقي الصفحات ==================
+@app.route("/<path:path>")
+def pages(path):
+    """
+    يخدم:
+    /pricing.html      -> frontend/pricing.html
+    /pricing           -> frontend/pricing.html
+    /blog.html         -> frontend/blog.html
+    /blog              -> frontend/blog.html
+    /whales.html       -> frontend/whales.html
+    ...
+    """
+    # لو ما فيهاش نقطة وما تنتهيش بـ .html نزيدولها .html
+    if "." not in path and not path.endswith(".html"):
+        filename = path + ".html"
+    else:
+        filename = path
 
-@app.route("/faq")
-def faq():
-    return render_template("faq.html")
+    file_path = os.path.join(FRONTEND_DIR, filename)
+    if os.path.exists(file_path):
+        return send_from_directory(FRONTEND_DIR, filename)
 
-@app.route("/payment")
-def payment():
-    return render_template("payment.html")
+    return "404 - Page Not Found", 404
 
-@app.route("/contact")
-def contact():
-    return render_template("contact.html")
-
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-@app.route("/dashboard")
-def dashboard():
-    return render_template("dashboard.html")
-
-@app.route("/profile")
-def profile():
-    return render_template("profile.html")
-
-@app.route("/settings")
-def settings():
-    return render_template("settings.html")
-
-@app.route("/notifications")
-def notifications():
-    return render_template("notifications.html")
-
-@app.route("/support")
-def support():
-    return render_template("support.html")
-
-@app.route("/portfolio")
-def portfolio():
-    return render_template("portfolio.html")
-
-@app.route("/analyze")
-def analyze_page():
-    return render_template("analyze.html")
-
-@app.route("/analyze_gold")
-def analyze_gold_page():
-    return render_template("analyze_gold.html")
-
-@app.route("/whales")
-def whales_page():
-    return render_template("whales.html")
-
-@app.route("/how_it_works")
-def how_page():
-    return render_template("how_it_works.html")
-
-@app.route("/connect_exchange")
-def connect_exchange():
-    return render_template("connect_exchange.html")
-
-# ========================= API ENDPOINTS ========================= #
-
-@app.route("/api/chat", methods=["POST"])
-def api_chat():
-    msg = request.json.get("message")
-    reply = chat_ai(msg)
-    return jsonify({"reply": reply})
-
-@app.route("/api/prices")
-def api_prices():
-    return jsonify(get_prices())
-
-@app.route("/api/analyze", methods=["POST"])
-def api_analyze():
-    coin = request.json.get("symbol")
-    result = analyze_crypto(coin)
-    return jsonify(result)
-
-@app.route("/api/analyze_gold", methods=["POST"])
-def api_analyze_gold():
-    result = analyze_gold()
-    return jsonify(result)
-
-@app.route("/api/analyze_stock", methods=["POST"])
-def api_analyze_stock():
-    stock = request.json.get("symbol")
-    result = analyze_stock(stock)
-    return jsonify(result)
-
-@app.route("/api/whales")
-def api_whales():
-    return jsonify(get_whale_data())
-
-@app.route("/api/telegram", methods=["POST"])
-def api_telegram():
-    msg = request.json.get("message")
-    telegram_send_message(msg)
-    return jsonify({"status": "sent"})
-
-# ========================= RUN SERVER ========================= #
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
