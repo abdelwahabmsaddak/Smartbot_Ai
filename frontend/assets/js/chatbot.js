@@ -1,19 +1,17 @@
-function toggleChat() {
-    document.getElementById("chatBody").classList.toggle("hidden");
-}
+async function sendMessage() {
+    let input = document.getElementById("chatInput");
+    let box = document.getElementById("chatBody");
 
-function sendMessage() {
-    const box = document.getElementById("chatBody");
-    const text = document.getElementById("chatInput").value;
+    let userMsg = input.value;
+    box.innerHTML += `<div class='user-msg'>${userMsg}</div>`;
+    input.value = "";
 
-    if(text.trim() === "") return;
+    let res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message: userMsg})
+    });
 
-    box.innerHTML += `<div class="msg user">${text}</div>`;
-    document.getElementById("chatInput").value = "";
-
-    // رد سريع (placeholder)
-    setTimeout(() => {
-        box.innerHTML += `<div class="msg bot">🤖 سيتم ربط الذكاء الاصطناعي لاحقاً…</div>`;
-        box.scrollTop = box.scrollHeight;
-    }, 600);
+    let data = await res.json();
+    box.innerHTML += `<div class='bot-msg'>${data.reply}</div>`;
 }
