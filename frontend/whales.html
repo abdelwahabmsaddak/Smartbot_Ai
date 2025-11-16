@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تتبع الحيتان – SmartBot</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="logo">SmartBot <span>AI Trader</span></div>
+        <nav class="nav">
+            <a href="index.html">الرئيسية</a>
+            <a href="pricing.html">الأسعار</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container" style="margin-top:30px;">
+    <h1>تتبع الحيتان</h1>
+
+    <input id="asset" placeholder="ابحث عن العملة… BTC / ETH / SHIB">
+    <button onclick="trackWhales()">تتبع الآن</button>
+
+    <div id="whalesResult" class="result-box"></div>
+</div>
+
+<script>
+function trackWhales(){
+    const coin = document.getElementById("asset").value;
+
+    fetch("/api/whales", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify({ asset: coin })
+    })
+    .then(r=>r.json())
+    .then(data=>{
+        document.getElementById("whalesResult").innerHTML = `
+            <h3>حجم الضخ: ${data.buy}</h3>
+            <h3>حجم البيع: ${data.sell}</h3>
+            <p>أكثر دولة ضخّت اليوم: ${data.country}</p>
+        `;
+    })
+}
+</script>
+
+</body>
+</html>
