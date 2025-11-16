@@ -45,46 +45,48 @@
     <section id="hero" class="hero">
         <div class="container">
             <h1>تحليل ذكي – تداول آمن <br> نتائج فورية</h1>
+
             <p class="hero-text">
-                نظام تحليل وتداول يعمل بالذكاء الاصطناعي لمراقبة العملات والأسهم والذهب وتقديم أفضل الإشارات.
+                نظام تحليل وتداول يعمل بالذكاء الاصطناعي لمراقبة العملات والأسهم والذهب 
+                وتقديم أفضل الإشارات في الوقت الحقيقي.
             </p>
 
             <a href="register.html" class="btn-primary">جرّب مجانًا الآن</a>
 
+            <!-- search box -->
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="ابحث عن عملة / سهم / ذهب…">
                 <button onclick="startSearch()">بحث</button>
             </div>
         </div>
     </section>
-
-    <!-- ============== FEATURES =============== -->
+    <!-- ============== FEATURES SECTION =============== -->
     <section class="ai-sections container">
 
         <div class="box">
             <i class="fa-solid fa-coins icon"></i>
             <h3>تحليل العملات الرقمية</h3>
-            <p>تحليل فوري لأكثر من 200 عملة.</p>
+            <p>تحليل فوري لأكثر من 200 عملة باستخدام الذكاء الاصطناعي.</p>
             <a href="analyze.html">ابدأ التحليل</a>
         </div>
 
         <div class="box">
             <i class="fa-solid fa-chart-line icon"></i>
             <h3>تحليل الذهب والأسهم</h3>
-            <p>تحليل احترافي لحركة الذهب والأسهم.</p>
+            <p>تحليل احترافي لحركة الذهب والأسهم (الحلال فقط).</p>
             <a href="analyze_gold.html">حلل الآن</a>
         </div>
 
         <div class="box">
             <i class="fa-solid fa-fish-fins icon"></i>
             <h3>تتبع الحيتان</h3>
-            <p>تعرف على الضخ والبيع الكبير.</p>
+            <p>راقب الضخ والبيع الكبير لحظة بلحظة.</p>
             <a href="whales.html">تتبع الآن</a>
         </div>
 
     </section>
 
-    <!-- ============== BLOG PREVIEW =============== -->
+    <!-- ============== BLOG SECTION =============== -->
     <section class="blog-preview container">
         <h2>آخر التدوينات</h2>
 
@@ -110,51 +112,66 @@
         <a class="btn-secondary" href="blog.html">عرض المزيد</a>
     </section>
 
-    <!-- ============== PRICING =============== -->
+
+    <!-- ============== PRICING SECTION =============== -->
     <section class="pricing container">
         <h2>خطط الاشتراك</h2>
 
         <div class="plans">
 
+            <!-- PLAN 1 -->
             <div class="plan">
                 <h3>الخطة الأساسية</h3>
                 <div class="price">19$</div>
                 <p>تحليل العملات الرقمية فقط</p>
+                <p>تداول آلي للعملات</p>
                 <a href="payment.html" class="btn-primary">اشترك الآن</a>
             </div>
 
+            <!-- PLAN 2 -->
             <div class="plan popular">
                 <h3>الخطة المتقدمة</h3>
                 <div class="price">29$</div>
-                <p>تحليل العملات + الأسهم + الذهب</p>
-                <a href="payment.html" class="btn-primary">اشترك الآن</a>
+                <p>تحليل العملات + الذهب + الأسهم</p>
+                <p>تداول آلي شامل</p>
+                <p>بدون تتبع الحيتان</p>
+                <a href="payment.html" class="btn-primary">الأكثر مبيعاً</a>
             </div>
 
+            <!-- PLAN 3 -->
             <div class="plan">
                 <h3>الخطة الشاملة</h3>
                 <div class="price">39$</div>
-                <p>كل الميزات + تتبع الحيتان</p>
+                <p>كل الميزات السابقة</p>
+                <p>تتبع الحيتان</p>
+                <p>أفضل استراتيجية تداول</p>
                 <a href="payment.html" class="btn-primary">اشترك الآن</a>
             </div>
 
         </div>
     </section>
-
-    <!-- ============== CHATBOT =============== -->
+    <!-- ============== CHATBOT SECTION =============== -->
     <div class="chatbot" id="chatbot">
+
+        <!-- Header -->
         <div class="chat-header" onclick="toggleChat()">
             <span>🤖 SmartBot Assistant</span>
         </div>
 
-        <div class="chat-body" id="chatBody"></div>
+        <!-- Body -->
+        <div class="chat-body" id="chatBody">
+            <!-- الرسائل ستظهر هنا عبر JavaScript -->
+        </div>
 
+        <!-- Input -->
         <div class="chat-input">
             <input id="chatInput" placeholder="اكتب سؤالك...">
             <button onclick="sendMessage()">إرسال</button>
         </div>
+
     </div>
 
-    <!-- JS -->
+    <!-- ============== JAVASCRIPT =============== -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/chatbot.js"></script>
 
