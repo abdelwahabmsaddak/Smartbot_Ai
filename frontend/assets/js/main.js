@@ -1,12 +1,10 @@
-function startSearch() {
-    const q = document.getElementById("searchInput").value.trim();
-    if(q === "") return alert("اكتب اسم العملة أو السهم");
+async function updatePrices() {
+    let res = await fetch("/api/prices");
+    let data = await res.json();
 
-    window.location.href = `analyze.html?query=${q}`;
+    document.getElementById("btc_price").innerHTML = data.btc;
+    document.getElementById("eth_price").innerHTML = data.eth;
 }
 
-// مثال أسعار (لاحقاً نربط API)
-document.getElementById("btc_price").innerText = "↑ 72,100$";
-document.getElementById("eth_price").innerText = "↓ 3,550$";
-document.getElementById("gold_price").innerText = "↑ 2,420$";
-document.getElementById("sp_price").innerText = "↑ 5,180";
+setInterval(updatePrices, 5000);
+updatePrices();
