@@ -1,98 +1,127 @@
-from flask import Flask, request, jsonify
-import openai
-import requests
+from flask import Flask, render_template, request, jsonify
+import os
+from market import get_prices
+from ai_engine import analyze_crypto, analyze_gold, analyze_stock
+from whales import get_whale_data
+from chatbot_engine import chat_ai
+from telegram_bot import telegram_send_message
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="assets", template_folder=".")
 
-openai.api_key = "YOUR_OPENAI_KEY"
+# ========================= ROUTES ========================= #
 
-# -------------------------------
-# 1) تحليل العملات الرقمية
-# -------------------------------
-@app.post("/api/analyze")
-def analyze():
-    data = request.json
-    asset = data.get("asset")
+@app.route("/")
+def home():
+    return render_template("index.html")
 
-    prompt = f"حلل حركة {asset} الآن وأعطني الاتجاه والتوقع ونسبة الثقة."
+@app.route("/pricing")
+def pricing():
+    return render_template("pricing.html")
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4o-mini",
-        messages=[{"role":"user","content":prompt}]
-    )
-
-    return jsonify({
-        "trend": "صعود" if "صعود" in response.choices[0].message["content"] else "هبوط",
-        "analysis": response.choices[0].message["content"],
-        "confidence": 87
-    })
-
-# -------------------------------
-# 2) تحليل الذهب والأسهم
-# -------------------------------
-@app.post("/api/analyze_gold")
-def analyze_gold():
-    market = request.json.get("market")
-
-    prompt = f"حلل سوق {market} الآن وأعطني الاتجاه والتوقع."
-
-    response = openai.ChatCompletion.create(
-        model="gpt-4o-mini",
-        messages=[{"role":"user","content":prompt}]
-    )
-
-    return jsonify({
-        "trend": "صعود",
-        "summary": response.choices[0].message["content"]
-    })
-
-# -------------------------------
-# 3) تتبع الحيتان (ضخ – بيع – بلد)
-# -------------------------------
-@app.post("/api/whales")
-def whales():
-    asset = request.json.get("asset")
-
-    # نموذج مبدئي – عندما نربطه بالمنصة نزيد الدقة
-    return jsonify({
-        "buy": "1.9M USD",
-        "sell": "800K USD",
-        "country": "Singapore"
-    })
-
-# -------------------------------
-# 4) توليد تدوينة بالذكاء الاصطناعي
-# -------------------------------
-@app.post("/api/blog")
+@app.route("/blog")
 def blog():
-    prompt = "اكتب تدوينة قصيرة عن آخر تحركات سوق العملات الرقمية."
+    return render_template("blog.html")
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4o-mini",
-        messages=[{"role":"user","content":prompt}]
-    )
+@app.route("/faq")
+def faq():
+    return render_template("faq.html")
 
-    return jsonify({
-        "title": "تحليل جديد للسوق",
-        "content": response.choices[0].message["content"]
-    })
+@app.route("/payment")
+def payment():
+    return render_template("payment.html")
 
-# -------------------------------
-# 5) الدردشة داخل الموقع
-# -------------------------------
-@app.post("/api/chat")
-def chat():
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
+
+@app.route("/settings")
+def settings():
+    return render_template("settings.html")
+
+@app.route("/notifications")
+def notifications():
+    return render_template("notifications.html")
+
+@app.route("/support")
+def support():
+    return render_template("support.html")
+
+@app.route("/portfolio")
+def portfolio():
+    return render_template("portfolio.html")
+
+@app.route("/analyze")
+def analyze_page():
+    return render_template("analyze.html")
+
+@app.route("/analyze_gold")
+def analyze_gold_page():
+    return render_template("analyze_gold.html")
+
+@app.route("/whales")
+def whales_page():
+    return render_template("whales.html")
+
+@app.route("/how_it_works")
+def how_page():
+    return render_template("how_it_works.html")
+
+@app.route("/connect_exchange")
+def connect_exchange():
+    return render_template("connect_exchange.html")
+
+# ========================= API ENDPOINTS ========================= #
+
+@app.route("/api/chat", methods=["POST"])
+def api_chat():
     msg = request.json.get("message")
+    reply = chat_ai(msg)
+    return jsonify({"reply": reply})
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4o-mini",
-        messages=[{"role":"user","content":msg}]
-    )
+@app.route("/api/prices")
+def api_prices():
+    return jsonify(get_prices())
 
-    return jsonify({
-        "reply": response.choices[0].message["content"]
-    })
+@app.route("/api/analyze", methods=["POST"])
+def api_analyze():
+    coin = request.json.get("symbol")
+    result = analyze_crypto(coin)
+    return jsonify(result)
 
+@app.route("/api/analyze_gold", methods=["POST"])
+def api_analyze_gold():
+    result = analyze_gold()
+    return jsonify(result)
+
+@app.route("/api/analyze_stock", methods=["POST"])
+def api_analyze_stock():
+    stock = request.json.get("symbol")
+    result = analyze_stock(stock)
+    return jsonify(result)
+
+@app.route("/api/whales")
+def api_whales():
+    return jsonify(get_whale_data())
+
+@app.route("/api/telegram", methods=["POST"])
+def api_telegram():
+    msg = request.json.get("message")
+    telegram_send_message(msg)
+    return jsonify({"status": "sent"})
+
+# ========================= RUN SERVER ========================= #
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
