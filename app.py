@@ -98,5 +98,40 @@ def connect_exchange():
     conn.close()
 
     return jsonify({"status": "ok"})
+    @app.route('/faq')
+def faq():
+    return send_from_directory(FRONTEND_DIR, 'faq.html')
+
+@app.route('/pricing')
+def pricing():
+    return send_from_directory(FRONTEND_DIR, 'pricing.html')
+
+@app.route('/blog')
+def blog():
+    return send_from_directory(FRONTEND_DIR, 'blog.html')
+
+@app.route('/contact')
+def contact():
+    return send_from_directory(FRONTEND_DIR, 'contact.html')
+
+@app.route('/login')
+def login():
+    return send_from_directory(FRONTEND_DIR, 'login.html')
+
+@app.route('/register')
+def register():
+    return send_from_directory(FRONTEND_DIR, 'register.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return send_from_directory(FRONTEND_DIR, 'dashboard.html')
+
+@app.route('/connect_exchange')
+def connect_exchange():
+    return send_from_directory(FRONTEND_DIR, 'connect_exchange.html')
+
+@app.route('/payment')
+def payment():
+    return send_from_directory(FRONTEND_DIR, 'payment.html')
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
