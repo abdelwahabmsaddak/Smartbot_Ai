@@ -1,0 +1,19 @@
+.faq h1 {
+    text-align: center;
+    color: #daa520;
+    margin: 40px 0;
+}
+
+.faq-box {
+    background: #0f1c2e;
+    border: 1px solid #1e3350;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.faq-box:hover {
+    border-color: #daa520;
+}
