@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBot AI – إنشاء عملة رقمية</title>
+
+    <!-- CSS الرئيسي للموقع -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <!-- لو تحب تضيف CSS خاص بالصفحة هاذي -->
+    <link rel="stylesheet" href="assets/css/token.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ======================== NAVBAR ======================== -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">SmartBot <span>AI Trader</span></div>
+
+            <nav class="nav">
+                <a href="index.html">الرئيسية</a>
+                <a href="analyze.html">تحليل العملات</a>
+                <a href="analyze_gold.html">تحليل الذهب والأسهم</a>
+                <a href="whales.html">تتبع الحيتان</a>
+                <a href="create_token.html" class="active">إنشاء عملة</a>
+                <a href="blog.html">المدونة</a>
+                <a href="pricing.html">الأسعار</a>
+                <a href="faq.html">الأسئلة الشائعة</a>
+                <a href="contact.html">اتصل بنا</a>
+            </nav>
+
+            <a href="login.html" class="btn-login">دخول</a>
+        </div>
+    </header>
+
+    <!-- ======================== PAGE HEADER ======================== -->
+    <section class="page-hero token-hero">
+        <div class="container">
+            <h1>أنشئ عملتك الرقمية في دقائق</h1>
+            <p>
+                املأ البيانات، وسيقوم SmartBot بتوليد عقد ذكي جاهز (ERC-20 / BEP-20)  
+                يمكنك نسخه ونشره مباشرة على البلوكشين عبر Remix.
+            </p>
+        </div>
+    </section>
+
+    <!-- ======================== TOKEN FORM ======================== -->
+    <section class="container token-generator">
+        <div class="token-grid">
+
+            <!-- الفورم -->
+            <div class="token-card">
+                <h2><i class="fa-solid fa-wand-magic-sparkles"></i> إعدادات العملة</h2>
+
+                <form id="tokenForm">
+                    <div class="form-group">
+                        <label for="network">الشبكة</label>
+                        <select id="network" required>
+                            <option value="bsc" selected>Binance Smart Chain (BEP-20)</option>
+                            <option value="eth">Ethereum (ERC-20)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">اسم العملة</label>
+                        <input type="text" id="name" placeholder="مثال: SmartBot Token" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="symbol">الرمز (Symbol)</label>
+                        <input type="text" id="symbol" placeholder="مثال: SBT" maxlength="8" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supply">إجمالي التوكنز (Total Supply)</label>
+                        <input type="number" id="supply" placeholder="مثال: 100000000" min="1" required>
+                        <small>سيتم ضرب هذا الرقم في 10^decimals داخل العقد.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="decimals">عدد المنازل العشرية (decimals)</label>
+                        <input type="number" id="decimals" value="18" min="0" max="18" required>
+                    </div>
+
+                    <div class="form-group form-inline">
+                        <label>خصائص إضافية</label>
+                        <div class="options">
+                            <label><input type="checkbox" id="burnable"> قابلة للحرق (Burnable)</label>
+                            <label><input type="checkbox" id="mintable"> قابلة للسك (Mintable)</label>
+                            <label><input type="checkbox" id="taxable"> تكس بسيط على التداول (Tax)</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary full-width">
+                        <i class="fa-solid fa-code"></i> توليد كود العقد الذكي
+                    </button>
+                </form>
+            </div>
+
+            <!-- الكود الناتج -->
+            <div class="token-card">
+                <h2><i class="fa-solid fa-file-code"></i> كود العقد الذكي (Solidity)</h2>
+                <p class="hint">
+                    بعد التوليد، انسخ الكود وضعه في Remix IDE ثم قم بالنشر على الشبكة التي اخترتها.
+                </p>
+                <textarea id="contractCode" readonly></textarea>
+
+                <button id="copyCodeBtn" class="btn-secondary full-width">
+                    <i class="fa-solid fa-copy"></i> نسخ الكود
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================== HOW TO PUBLISH ======================== -->
+    <section class="container token-steps">
+        <h2><i class="fa-solid fa-rocket"></i> كيف تنشر عملتك وتبدأ في بيعها؟</h2>
+
+        <ol class="steps-list">
+            <li>افتح موقع <strong>remix.ethereum.org</strong>.</li>
+            <li>أنشئ ملفًا جديدًا باسم <code>MyToken.sol</code> والصق الكود الذي تم توليده.</li>
+            <li>اختر نسخة المترجم (Compiler) المناسبة مثل <code>0.8.20</code> ثم اضغط Compile.</li>
+            <li>من تبويب <strong>Deploy &amp; Run</strong>، اختر البيئة <strong>Injected Provider</strong> لربط Remix بمحفظة MetaMask.</li>
+            <li>اختر العقد ثم اضغط <strong>Deploy</strong> ووافق على العملية من المحفظة.</li>
+            <li>بعد النشر، انسخ عنوان العقد (Contract Address).</li>
+            <li>لإضافة التوكن إلى المحفظة، اضف عقد التوكن في MetaMask أو Trust Wallet.</li>
+            <li>للبدء في البيع، أضف سيولة على منصات مثل PancakeSwap / Uniswap وربطها بعنوان العقد.</li>
+        </ol>
+
+        <p class="disclaimer">
+            تنبيه: هذا التوليد تعليمي ولا يعتبر نصيحة استثمارية. تأكد من مراجعة كود العقد بواسطة مبرمج مختص قبل استخدامه بمبالغ حقيقية.
+        </p>
+    </section>
+
+    <!-- ======================== FOOTER بسيط ======================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 SmartBot AI Trader – جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- سكربتات -->
+    <script src="assets/js/token_generator.js"></script>
+</body>
+</html>
