@@ -1,18 +1,28 @@
-import os, httpx
-from fastapi import APIRouter
-from dotenv import load_dotenv
+from openai import OpenAI
+import os
 
-load_dotenv()
-router = APIRouter(prefix="/api/ai")
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY","")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-@router.get("/analyze/{symbol}")
-async def analyze(symbol: str):
-    if not OPENAI_API_KEY:
-        return {"error":"API key missing"}
-    headers={"Authorization":f"Bearer {OPENAI_API_KEY}","Content-Type":"application/json"}
-    payload={"model":"gpt-5-turbo","input":f"حلل العملة {symbol} وأعطني توصية مختصرة."}
-    async with httpx.AsyncClient(timeout=60) as cx:
-        r=await cx.post("https://api.openai.com/v1/responses",headers=headers,json=payload)
-    data=r.json()
-    return {"symbol":symbol.upper(),"ai":data.get("output_text","لا توجد بيانات حالياً.")}
+def analyze_crypto(symbol):
+    txt = f"حلل العملة الرقمية {symbol} بالتفصيل واعطني: الاتجاه – نقاط الدخول – نقاط الخروج – توقعات 24 ساعة."
+    r = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role":"user","content":txt}]
+    )
+    return {"analysis": r.choices[0].message["content"]}
+
+def analyze_gold():
+    txt = "حلل الذهب الآن وقدم توقعات قصيرة المدى."
+    r = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role":"user","content":txt}]
+    )
+    return {"analysis": r.choices[0].message["content"]}
+
+def analyze_stock(symbol):
+    txt = f"حلل السهم {symbol} وقدم الاتجاه والتوقعات."
+    r = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[{"role":"user","content":txt}]
+    )
+    return {"analysis": r.choices[0].message["content"]}
