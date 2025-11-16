@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartBot AI Trader – تحليل ذكي</title>
+    <title>SmartBot AI Trader – تحليل ذكي وتداول آمن</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/home.css">
 
@@ -14,17 +16,16 @@
 
 <body>
 
-    <!-- ======================== NAVBAR ======================== -->
+    <!-- ================= NAVBAR ================= -->
     <header class="header">
         <div class="container">
             <div class="logo">SmartBot <span>AI Trader</span></div>
 
             <nav class="nav">
-                <a href="#start">ابدأ الآن</a>
-                <a href="faq.html">الأسئلة الشائعة</a>
-                <a href="blog.html">المدونة</a>
+                <a href="#hero">الرئيسية</a>
                 <a href="pricing.html">الأسعار</a>
-                <a href="how_it_works.html">كيف يعمل</a>
+                <a href="blog.html">المدونة</a>
+                <a href="faq.html">الأسئلة الشائعة</a>
                 <a href="contact.html">اتصل بنا</a>
             </nav>
 
@@ -32,88 +33,86 @@
         </div>
     </header>
 
-    <!-- ======================== MARKET BAR ======================== -->
+    <!-- ============== MARKET BAR =============== -->
     <div class="market-bar">
-        <span>BTC  • <span id="btc_price">--</span></span>
-        <span>ETH  • <span id="eth_price">--</span></span>
-        <span>Gold  • <span id="gold_price">--</span></span>
-        <span>S&P500  • <span id="sp_price">--</span></span>
+        <span>BTC • <span id="btc_price">--</span></span>
+        <span>ETH • <span id="eth_price">--</span></span>
+        <span>GOLD • <span id="gold_price">--</span></span>
+        <span>S&P500 • <span id="spx_price">--</span></span>
     </div>
 
-    <!-- ======================== HERO SECTION ======================== -->
-    <section class="hero">
+    <!-- ============== HERO SECTION =============== -->
+    <section id="hero" class="hero">
         <div class="container">
-            <h1>
-                تحليل ذكي – تداول آمن  
-                <br>  
-                نتائج فورية
-            </h1>
-
+            <h1>تحليل ذكي – تداول آمن <br> نتائج فورية</h1>
             <p class="hero-text">
-                SmartBot AI Trader هو نظام تحليل وتداول ذكي يعمل بالذكاء الاصطناعي  
-                لتحليل الأسواق لحظة بلحظة وإعطائك إشارات تداول دقيقة.
+                نظام تحليل وتداول يعمل بالذكاء الاصطناعي لمراقبة العملات والأسهم والذهب وتقديم أفضل الإشارات.
             </p>
 
-            <a href="register.html" class="btn-primary">جرّب الخطة المجانية الآن</a>
+            <a href="register.html" class="btn-primary">جرّب مجانًا الآن</a>
 
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="ابحث عن عملة – سهم – ذهب…">
+                <input type="text" id="searchInput" placeholder="ابحث عن عملة / سهم / ذهب…">
                 <button onclick="startSearch()">بحث</button>
             </div>
         </div>
     </section>
 
-    <!-- ======================== AI SECTIONS ======================== -->
+    <!-- ============== FEATURES =============== -->
     <section class="ai-sections container">
 
         <div class="box">
             <i class="fa-solid fa-coins icon"></i>
             <h3>تحليل العملات الرقمية</h3>
-            <p>تحليل آلي لأكثر من 200 عملة مع توقعات دقيقة.</p>
+            <p>تحليل فوري لأكثر من 200 عملة.</p>
             <a href="analyze.html">ابدأ التحليل</a>
         </div>
 
         <div class="box">
             <i class="fa-solid fa-chart-line icon"></i>
             <h3>تحليل الذهب والأسهم</h3>
-            <p>تحليل احترافي لحركة الذهب والأسهم العالمية.</p>
+            <p>تحليل احترافي لحركة الذهب والأسهم.</p>
             <a href="analyze_gold.html">حلل الآن</a>
         </div>
 
         <div class="box">
             <i class="fa-solid fa-fish-fins icon"></i>
             <h3>تتبع الحيتان</h3>
-            <p>تعرف على الضخ الكبير وعمليات البيع الضخمة.</p>
+            <p>تعرف على الضخ والبيع الكبير.</p>
             <a href="whales.html">تتبع الآن</a>
         </div>
 
     </section>
 
-    <!-- ======================== BLOG PREVIEW ======================== -->
+    <!-- ============== BLOG PREVIEW =============== -->
     <section class="blog-preview container">
-        <h2>آخر التدوينات الذكية</h2>
+        <h2>آخر التدوينات</h2>
 
         <div class="posts">
+
             <div class="post">
                 <h4>تحليل BTC اليوم</h4>
-                <p>الذكاء الاصطناعي يتوقع حركة صعود قوية...</p>
+                <p>الذكاء الاصطناعي يتوقع حركة صعود محتملة…</p>
             </div>
+
             <div class="post">
                 <h4>أفضل فرص السوق</h4>
-                <p>هذه 3 عملات جاهزة للانفجار حسب النظام...</p>
+                <p>3 عملات جاهزة للصعود حسب النظام…</p>
             </div>
+
             <div class="post">
-                <h4>الذهب إلى أين؟</h4>
-                <p>تحليل جديد لحركة الذهب في الأسبوع القادم...</p>
+                <h4>تحليل الذهب</h4>
+                <p>التوقعات الأسبوعية لحركة الذهب…</p>
             </div>
+
         </div>
 
-        <a class="btn-secondary" href="blog.html">عرض جميع التدوينات</a>
+        <a class="btn-secondary" href="blog.html">عرض المزيد</a>
     </section>
 
-    <!-- ======================== PRICING ======================== -->
+    <!-- ============== PRICING =============== -->
     <section class="pricing container">
-        <h2>اختر خطتك</h2>
+        <h2>خطط الاشتراك</h2>
 
         <div class="plans">
 
@@ -127,7 +126,7 @@
             <div class="plan popular">
                 <h3>الخطة المتقدمة</h3>
                 <div class="price">29$</div>
-                <p>تحليل الأسهم + الذهب + العملات</p>
+                <p>تحليل العملات + الأسهم + الذهب</p>
                 <a href="payment.html" class="btn-primary">اشترك الآن</a>
             </div>
 
@@ -141,11 +140,12 @@
         </div>
     </section>
 
-    <!-- ======================== CHATBOT ======================== -->
+    <!-- ============== CHATBOT =============== -->
     <div class="chatbot" id="chatbot">
         <div class="chat-header" onclick="toggleChat()">
-            <span>SmartBot Assistant 🤖</span>
+            <span>🤖 SmartBot Assistant</span>
         </div>
+
         <div class="chat-body" id="chatBody"></div>
 
         <div class="chat-input">
@@ -154,13 +154,9 @@
         </div>
     </div>
 
+    <!-- JS -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/chatbot.js"></script>
-    <link rel="stylesheet" href="assets/css/main.css">
-<link rel="stylesheet" href="assets/css/home.css">
-
-<script src="assets/js/main.js" defer></script>
-<script src="assets/js/chatbot.js" defer></script>
 
 </body>
-</html> 
+</html>
