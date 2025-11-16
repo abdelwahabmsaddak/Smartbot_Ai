@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartBot AI – التحليل الذكي</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>تحليل العملات – SmartBot</title>
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body>
 
-  <header>
-    <h1>🧠 التحليل الذكي – SmartBot AI</h1>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="analyze.html" class="active">التحليل</a>
-    </nav>
-  </header>
-
-  <main class="chat-container">
-    <div id="chatBox" class="chat-box">
-      <div class="msg bot">مرحباً 👋 أنا SmartBot. اسألني عن أي عملة رقمية وسأحللها لك فوراً.</div>
+<header class="header">
+    <div class="container">
+        <div class="logo">SmartBot <span>AI Trader</span></div>
+        <nav class="nav">
+            <a href="index.html">الرئيسية</a>
+            <a href="pricing.html">الأسعار</a>
+        </nav>
     </div>
-    <footer class="chat-input">
-      <input id="userInput" placeholder="اكتب مثلاً: حلل عملة Bitcoin..." onkeypress="if(event.key==='Enter'){sendMsg();}">
-      <button onclick="sendMsg()">إرسال</button>
-    </footer>
-  </main>
+</header>
 
-  <script src="script.js"></script>
+<div class="container" style="margin-top:30px;">
+    <h1>تحليل العملات الرقمية</h1>
+
+    <input id="coinInput" placeholder="مثال: BTC / ETH / SOL">
+    <button onclick="analyze()">تحليل</button>
+
+    <div id="analysisResult" class="result-box"></div>
+</div>
+
+<script>
+function analyze() {
+    const coin = document.getElementById("coinInput").value;
+
+    fetch("/api/analyze", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify({ asset: coin })
+    })
+    .then(r=>r.json())
+    .then(data=>{
+        document.getElementById("analysisResult").innerHTML = `
+            <h3>الاتجاه: ${data.trend}</h3>
+            <p>${data.analysis}</p>
+            <h4>نسبة الثقة: ${data.confidence}%</h4>
+        `;
+    })
+}
+</script>
+
 </body>
-                                     </html>
-                                     
+</html>
