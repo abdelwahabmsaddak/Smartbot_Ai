@@ -1,34 +1,23 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>الدفع عبر PayPal</title>
-<script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
-</head>
-<body>
-<h2>ادفع الآن</h2>
-<div id="paypal-button-container"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدفع – SmartBot AI Trader</title>
 
-<script>
-paypal.Buttons({
-  createOrder: function(data, actions) {
-    return fetch('/api/paypal/create-order', {method: 'post'})
-      .then(res => res.json())
-      .then(order => order.id);
-  },
-  onApprove: function(data, actions) {
-    return fetch('/api/paypal/capture-order', {
-      method: 'post',
-      headers: {'content-type': 'application/json'},
-      body: JSON.stringify({orderID: data.orderID})
-    })
-    .then(res => res.json())
-    .then(details => {
-      alert('تمت العملية بنجاح: ' + details.status);
-    });
-  }
-}).render('#paypal-button-container');
-</script>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+<section class="payment container">
+    <h2>إتمام الدفع</h2>
+
+    <p>سيتم توجيهك الآن إلى PayPal لإتمام عملية الدفع بأمان.</p>
+
+    <a class="btn-primary" href="https://www.paypal.com">الدفع عبر PayPal</a>
+
+</section>
+
 </body>
-</html
-  
+</html>
