@@ -1,229 +1,250 @@
-/* ===========================
-   GLOBAL STYLE
-=========================== */
+/* ==================== GLOBAL ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Tajawal", sans-serif;
+    font-family: "Cairo", sans-serif;
 }
 
 body {
-    background: #f7f9fc;
-    color: #0a2342;
+    background: #f5f7fa;
     direction: rtl;
+    color: #1a1a1a;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.container {
-    width: 90%;
-    max-width: 1300px;
-    margin: auto;
-}
-
-/* ===========================
-   NAVBAR
-=========================== */
-
-.header {
-    background: #0a2342;
-    padding: 15px 0;
+/* ==================== NAVBAR ==================== */
+.navbar {
+    background: #0a1f44;
     color: #fff;
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    padding: 15px 0;
+    border-bottom: 3px solid #d4a017;
 }
 
-.logo {
-    font-size: 26px;
-    font-weight: bold;
-}
-
-.logo span {
-    color: #f2b705;
-}
-
-.header .container {
+.navbar .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.nav a {
-    margin-right: 25px;
+.navbar .logo {
+    font-size: 22px;
+    font-weight: 700;
     color: #fff;
-    font-size: 16px;
-    transition: 0.3s;
 }
 
-.nav a:hover {
-    color: #f2b705;
+.navbar .logo span {
+    color: #d4a017;
+}
+
+.navbar nav a {
+    margin-left: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .btn-login {
-    background: #f2b705;
-    color: #0a2342;
-    padding: 10px 18px;
+    background: #d4a017;
+    padding: 8px 16px;
     border-radius: 6px;
-    font-weight: bold;
+    color: #0a1f44;
+    font-weight: 700;
+    text-decoration: none;
 }
 
-.btn-login:hover {
-    background: #d6a104;
-}
-
-/* ===========================
-   MARKET BAR
-=========================== */
-
+/* ==================== MARKET BAR ==================== */
 .market-bar {
-    width: 100%;
-    background: #081c32;
-    color: #f2b705;
-    padding: 10px;
-    display: flex;
-    overflow-x: auto;
+    background: #06152c;
+    color: #d4a017;
+    padding: 8px;
     font-size: 15px;
-    gap: 30px;
-    white-space: nowrap;
+    display: flex;
+    justify-content: space-around;
 }
 
-/* ===========================
-   HERO SECTION
-=========================== */
-
+/* ==================== HERO ==================== */
 .hero {
-    text-align: center;
-    padding: 70px 0;
-    background: linear-gradient(to left, #0a2342, #11345f);
+    background: linear-gradient(to right, #0a1f44, #12376b);
     color: #fff;
+    padding: 80px 0;
+    text-align: center;
 }
 
 .hero h1 {
-    font-size: 40px;
-    line-height: 1.5;
+    font-size: 34px;
+    margin-bottom: 15px;
+    font-weight: 700;
 }
 
 .hero-text {
-    margin: 15px auto;
-    width: 80%;
-    max-width: 600px;
+    max-width: 650px;
+    margin: auto;
+    opacity: 0.9;
     font-size: 18px;
+    line-height: 1.8;
 }
 
 .btn-primary {
-    background: #f2b705;
-    color: #0a2342;
-    padding: 12px 25px;
+    background: #d4a017;
+    padding: 14px 28px;
+    color: #0a1f44;
     border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
     display: inline-block;
-    font-size: 18px;
     margin-top: 20px;
-    font-weight: bold;
-}
-
-.btn-primary:hover {
-    background: #d6a104;
 }
 
 .search-box {
     margin-top: 30px;
     display: flex;
     justify-content: center;
-    gap: 10px;
 }
 
 .search-box input {
     width: 300px;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 6px;
     border: none;
-    outline: none;
+    margin-left: 10px;
 }
 
 .search-box button {
     padding: 12px 20px;
-    border-radius: 8px;
+    background: #d4a017;
     border: none;
-    background: #f2b705;
-    color: #0a2342;
-    font-weight: bold;
-    cursor: pointer;
+    border-radius: 6px;
+    color: #0a1f44;
+    font-weight: 600;
 }
 
-/* ===========================
-   CHATBOT
-=========================== */
+/* ==================== FEATURES ==================== */
+.features {
+    padding: 60px 0;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
 
+.feature {
+    width: 30%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.07);
+}
+
+.feature i {
+    color: #d4a017;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0a1f44;
+    font-weight: 700;
+}
+
+/* ==================== BLOG ==================== */
+.blog-preview {
+    padding: 60px 0;
+}
+
+.blog-preview h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.posts {
+    display: flex;
+    justify-content: space-around;
+}
+
+.post {
+    width: 30%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.07);
+}
+
+/* ==================== PRICING ==================== */
+.pricing {
+    padding: 60px 0;
+}
+
+.plans {
+    display: flex;
+    justify-content: space-around;
+}
+
+.plan {
+    width: 30%;
+    padding: 25px;
+    background: #fff;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #d4a017;
+}
+
+.plan.popular {
+    background: #0a1f44;
+    color: #fff;
+}
+
+.plan .price {
+    font-size: 32px;
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+/* ==================== CHATBOT ==================== */
 .chatbot {
     position: fixed;
     bottom: 20px;
     left: 20px;
     width: 320px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #0002;
-    display: flex;
-    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.15);
+    display: none;
     overflow: hidden;
-    z-index: 9999;
+    z-index: 99999;
 }
 
 .chat-header {
-    background: #0a2342;
+    background: #0a1f44;
     color: #fff;
     padding: 12px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .chat-body {
-    height: 260px;
+    height: 300px;
     overflow-y: auto;
     padding: 10px;
-    background: #f5f5f5;
 }
 
 .chat-input {
     display: flex;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ddd;
 }
 
 .chat-input input {
     flex: 1;
     padding: 12px;
     border: none;
-    outline: none;
 }
 
 .chat-input button {
-    background: #f2b705;
-    color: #0a2342;
-    padding: 12px;
+    background: #d4a017;
     border: none;
+    padding: 12px 20px;
+    font-weight: 700;
     cursor: pointer;
-    font-weight: bold;
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-
-@media (max-width: 768px) {
-    .nav {
-        display: none;
-    }
-
-    .chatbot {
-        width: 260px;
-    }
-
-    .hero h1 {
-        font-size: 30px;
-    }
 }
