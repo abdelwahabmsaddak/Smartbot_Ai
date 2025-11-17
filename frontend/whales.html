@@ -2,8 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>تتبع الحيتان – SmartBot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تتبع الحيتان – SmartBot AI Trader</title>
+
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/whales.css">
 </head>
 
 <body>
@@ -11,41 +14,24 @@
 <header class="header">
     <div class="container">
         <div class="logo">SmartBot <span>AI Trader</span></div>
+
         <nav class="nav">
             <a href="index.html">الرئيسية</a>
             <a href="pricing.html">الأسعار</a>
+            <a href="blog.html">المدونة</a>
         </nav>
     </div>
 </header>
 
-<div class="container" style="margin-top:30px;">
-    <h1>تتبع الحيتان</h1>
+<section class="whales container">
+    <h2>تتبّع الحيتان – الضخ الكبير</h2>
 
-    <input id="asset" placeholder="ابحث عن العملة… BTC / ETH / SHIB">
-    <button onclick="trackWhales()">تتبع الآن</button>
+    <div id="whales_feed" class="whales-box">
+        <p>جاري تحميل البيانات...</p>
+    </div>
 
-    <div id="whalesResult" class="result-box"></div>
-</div>
-
-<script>
-function trackWhales(){
-    const coin = document.getElementById("asset").value;
-
-    fetch("/api/whales", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body:JSON.stringify({ asset: coin })
-    })
-    .then(r=>r.json())
-    .then(data=>{
-        document.getElementById("whalesResult").innerHTML = `
-            <h3>حجم الضخ: ${data.buy}</h3>
-            <h3>حجم البيع: ${data.sell}</h3>
-            <p>أكثر دولة ضخّت اليوم: ${data.country}</p>
-        `;
-    })
-}
-</script>
+    <script src="assets/js/whales.js"></script>
+</section>
 
 </body>
 </html>
