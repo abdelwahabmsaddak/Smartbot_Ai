@@ -2,50 +2,28 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>تحليل العملات – SmartBot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحليل العملات الرقمية</title>
+
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/analyze.css">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="container">
-        <div class="logo">SmartBot <span>AI Trader</span></div>
-        <nav class="nav">
-            <a href="index.html">الرئيسية</a>
-            <a href="pricing.html">الأسعار</a>
-        </nav>
+<section class="analyze container">
+    <h2>تحليل العملات الرقمية</h2>
+
+    <div class="search-box">
+        <input id="symbol" placeholder="مثال: BTC / ETH">
+        <button onclick="analyzeCoin()">تحليل</button>
     </div>
-</header>
 
-<div class="container" style="margin-top:30px;">
-    <h1>تحليل العملات الرقمية</h1>
+    <div class="result" id="result_box"></div>
 
-    <input id="coinInput" placeholder="مثال: BTC / ETH / SOL">
-    <button onclick="analyze()">تحليل</button>
+    <script src="assets/js/analyze.js"></script>
 
-    <div id="analysisResult" class="result-box"></div>
-</div>
-
-<script>
-function analyze() {
-    const coin = document.getElementById("coinInput").value;
-
-    fetch("/api/analyze", {
-        method:"POST",
-        headers:{ "Content-Type":"application/json" },
-        body:JSON.stringify({ asset: coin })
-    })
-    .then(r=>r.json())
-    .then(data=>{
-        document.getElementById("analysisResult").innerHTML = `
-            <h3>الاتجاه: ${data.trend}</h3>
-            <p>${data.analysis}</p>
-            <h4>نسبة الثقة: ${data.confidence}%</h4>
-        `;
-    })
-}
-</script>
+</section>
 
 </body>
 </html>
