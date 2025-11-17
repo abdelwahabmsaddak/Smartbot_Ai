@@ -1,91 +1,59 @@
-from flask import Flask, render_template, send_from_directory
+# =========================================================
+# SmartBot AI Trader – Main Backend
+# =========================================================
 
-app = Flask(__name__, static_folder="frontend/assets", template_folder="frontend")
+from flask import Flask, request, jsonify, render_template
+from ai_engine import analyze_with_ai
+from trading_engine import analyze_market
+from whales_tracker import get_whales_data
+import os
 
-# ================================
-# ROUTES FOR MAIN PAGES
-# ================================
+app = Flask(__name__)
+
+
+# ====================== ROUTES ===========================
+
 @app.route("/")
+@app.route("/index.html")
 def home():
     return render_template("index.html")
 
-@app.route("/index.html")
-def index():
-    return render_template("index.html")
 
-@app.route("/login.html")
-def login():
-    return render_template("login.html")
-
-@app.route("/register.html")
-def register():
-    return render_template("register.html")
-
-@app.route("/pricing.html")
-def pricing():
-    return render_template("pricing.html")
-
-@app.route("/analyze.html")
+@app.route("/analyze", methods=["POST"])
 def analyze():
-    return render_template("analyze.html")
+    data = request.json
+    item = data.get("item", "")
 
-@app.route("/analyze_gold.html")
-def analyze_gold():
-    return render_template("analyze_gold.html")
+    if item.strip() == "":
+        return jsonify({"error": "يرجى إدخال اسم العملة أو السهم"}), 400
 
-@app.route("/connect_exchange.html")
-def connect_exchange():
-    return render_template("connect_exchange.html")
+    ai_result = analyze_with_ai(item)
+    market_data = analyze_market(item)
 
-@app.route("/dashboard.html")
-def dashboard():
-    return render_template("dashboard.html")
+    return jsonify({
+        "item": item,
+        "ai_analysis": ai_result,
+        "market": market_data
+    })
 
-@app.route("/blog.html")
-def blog():
-    return render_template("blog.html")
 
-@app.route("/faq.html")
-def faq():
-    return render_template("faq.html")
-
-@app.route("/contact.html")
-def contact():
-    return render_template("contact.html")
-
-@app.route("/how_it_works.html")
-def how_it_works():
-    return render_template("how_it_works.html")
-
-@app.route("/payment.html")
-def payment():
-    return render_template("payment.html")
-
-@app.route("/whales.html")
+@app.route("/whales")
 def whales():
-    return render_template("whales.html")
+    return jsonify(get_whales_data())
 
-@app.route("/profile.html")
-def profile():
-    return render_template("profile.html")
 
-@app.route("/billing.html")
-def billing():
-    return render_template("billing.html")
+@app.route("/chat", methods=["POST"])
+def chat():
+    msg = request.json.get("message", "")
+    if msg.strip() == "":
+        return jsonify({"response": "لم أفهم… أعد صياغة سؤالك"}), 200
 
-@app.route("/upgrade.html")
-def upgrade():
-    return render_template("upgrade.html")
+    # AI REPLY
+    ai_reply = analyze_with_ai(msg)
+    return jsonify({"response": ai_reply})
 
-# ================================
-# STATIC FILES (CSS / JS / IMAGES)
-# ================================
-@app.route('/assets/<path:filename>')
-def serve_assets(filename):
-    return send_from_directory('frontend/assets', filename)
 
-# ================================
-# RUN SERVER
-# ================================
+# ====================== RUN APP ===========================
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    app.run(host="0.0.0.0", port=5000)
