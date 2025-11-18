@@ -1,75 +1,30 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>تسجيل الدخول – SmartBot AI Trader</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول | SmartBot</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-theme">
 
 <header class="header">
-    <div class="container">
-        <div class="logo">SmartBot <span>AI Trader</span></div>
-        <nav class="nav">
-            <a href="index.html">الرئيسية</a>
-            <a href="pricing.html">الأسعار</a>
-        </nav>
-    </div>
+  <div class="logo">SmartBot</div>
 </header>
 
-<div class="container" style="margin-top:40px;max-width:420px;">
-    <h1 style="margin-bottom:15px;">تسجيل الدخول</h1>
-    <p style="margin-bottom:15px;">ادخل إلى حسابك لمتابعة التحليل والتداول.</p>
+<main>
+  <section class="form-box">
+    <h2>تسجيل الدخول</h2>
+    <form>
+      <input type="email" placeholder="البريد الإلكتروني">
+      <input type="password" placeholder="كلمة المرور">
+      <button class="btn" type="submit">دخول</button>
+    </form>
+  </section>
+</main>
 
-    <div style="background:#fff;padding:20px;border-radius:10px;box-shadow:0 4px 10px #0001;">
-        <label>البريد الإلكتروني</label>
-        <input id="loginEmail" type="email" style="width:100%;padding:8px;margin:6px 0 12px;border-radius:6px;border:1px solid #ccc;">
-
-        <label>كلمة المرور</label>
-        <input id="loginPassword" type="password" style="width:100%;padding:8px;margin:6px 0 18px;border-radius:6px;border:1px solid #ccc;">
-
-        <button onclick="doLogin()" style="width:100%;padding:10px;border:none;border-radius:6px;background:#f5c542;font-weight:700;">
-            دخول
-        </button>
-
-        <p id="loginMsg" style="margin-top:10px;color:#b00020;"></p>
-
-        <p style="margin-top:15px;font-size:14px;">
-            ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد</a>
-        </p>
-    </div>
-</div>
-
-<script>
-function doLogin() {
-    const email = document.getElementById("loginEmail").value.trim();
-    const password = document.getElementById("loginPassword").value.trim();
-    const msg = document.getElementById("loginMsg");
-
-    if(!email || !password) {
-        msg.textContent = "يرجى إدخال البريد وكلمة المرور.";
-        return;
-    }
-
-    fetch("/api/login", {
-        method:"POST",
-        headers: {"Content-Type":"application/json"},
-        body: JSON.stringify({ email, password })
-    }).then(r=>r.json())
-      .then(data=>{
-        if(data.success){
-            msg.style.color = "green";
-            msg.textContent = "تم تسجيل الدخول بنجاح.";
-            window.location.href = "dashboard.html";
-        }else{
-            msg.style.color = "#b00020";
-            msg.textContent = "بيانات غير صحيحة.";
-        }
-      }).catch(()=>{
-        msg.textContent = "خطأ في الاتصال بالسيرفر.";
-      });
-}
-</script>
+<footer>
+  <p>© 2025 SmartBot</p>
+</footer>
 
 </body>
 </html>
