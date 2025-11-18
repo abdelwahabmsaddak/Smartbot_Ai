@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>لوحة التحكم - SmartBot AI</title>
+  <title>لوحة التحكم | SmartBot</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header class="navbar">
-    <div class="logo" onclick="location.href='index.html'">📊 لوحة التحكم</div>
-  </header>
+<body class="dark-theme">
 
-  <section class="dashboard">
-    <h2>نتائج التداول اليوم</h2>
-    <div class="stats">
-      <p>عدد الصفقات اليوم: <span id="trades">0</span></p>
-      <p>الربح اليومي: <span id="profit">$0</span></p>
-    </div>
+<header class="header">
+  <div class="logo">SmartBot</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="chat.html">الدردشة</a>
+  </nav>
+</header>
 
-    <canvas id="chart" width="350" height="180"></canvas>
-    <button onclick="simulateTrade()">بدء التداول التجريبي</button>
+<main>
+  <section class="content-box">
+    <h2>لوحة التحكم</h2>
+    <p>اختر خدمتك:</p>
+    <a class="btn" href="chat.html">الدردشة</a>
+    <a class="btn" href="blog.html">المدونة</a>
   </section>
+</main>
 
-  <footer>
-    <p>© 2025 SmartBot AI Trader</p>
-  </footer>
-  <script src="dashboard.js"></script>
+<footer>
+  <p>© 2025 SmartBot</p>
+</footer>
+
 </body>
 </html>
