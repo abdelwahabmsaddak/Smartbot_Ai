@@ -1,145 +1,36 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء حساب – SmartBot AI Trader</title>
-    <link rel="stylesheet" href="style.css">
-
-    <style>
-        body {
-            background: #f7f9fc;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        .register-container {
-            max-width: 420px;
-            margin: 40px auto;
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            text-align: center;
-            color: #0d47a1;
-            font-weight: bold;
-        }
-
-        label {
-            font-weight: bold;
-            margin-top: 10px;
-            display: block;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-            margin-top: 5px;
-        }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(90deg, #0d47a1, #f9a825);
-            border: none;
-            color: white;
-            font-size: 18px;
-            border-radius: 10px;
-            margin-top: 20px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            opacity: 0.92;
-        }
-
-        .login-link {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .login-link a {
-            color: #0d47a1;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>إنشاء حساب | SmartBot</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body class="dark-theme">
 
-<body>
+<header class="header">
+  <div class="logo">SmartBot</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="pricing.html">الخطط</a>
+    <a href="login.html" class="btn">تسجيل الدخول</a>
+  </nav>
+</header>
 
-    <div class="register-container">
-        <h2>إنشاء حساب</h2>
+<main>
+  <section class="form-box">
+    <h2>إنشاء حساب جديد</h2>
+    <form>
+      <input type="text" placeholder="الاسم الكامل">
+      <input type="email" placeholder="البريد الإلكتروني">
+      <input type="password" placeholder="كلمة المرور">
+      <button class="btn" type="submit">تسجيل</button>
+    </form>
+  </section>
+</main>
 
-        <label>الاسم الكامل</label>
-        <input type="text" id="name" placeholder="أدخل اسمك" />
-
-        <label>البريد الإلكتروني</label>
-        <input type="email" id="email" placeholder="example@email.com" />
-
-        <label>كلمة السر</label>
-        <input type="password" id="password" placeholder="******" />
-
-        <label>الدولة</label>
-        <select id="country">
-            <option value="">اختر الدولة</option>
-            <option value="TN">تونس (+216)</option>
-            <option value="MA">المغرب (+212)</option>
-            <option value="DZ">الجزائر (+213)</option>
-            <option value="SA">السعودية (+966)</option>
-            <option value="AE">الإمارات (+971)</option>
-            <option value="EG">مصر (+20)</option>
-            <option value="FR">فرنسا (+33)</option>
-            <option value="IN">الهند (+91)</option>
-            <option value="US">أمريكا (+1)</option>
-            <option value="GB">بريطانيا (+44)</option>
-        </select>
-
-        <label>رقم الهاتف</label>
-        <input type="tel" id="phone" placeholder="رقم الهاتف" />
-
-        <button onclick="registerUser()">إنشاء الحساب</button>
-
-        <div class="login-link">
-            لديك حساب؟ <a href="login.html">تسجيل الدخول</a>
-        </div>
-    </div>
-
-
-<script>
-function registerUser() {
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
-    let country = document.getElementById("country").value;
-    let phone = document.getElementById("phone").value;
-
-    if (!name || !email || !password || !country || !phone) {
-        alert("الرجاء ملء جميع الخانات");
-        return;
-    }
-
-    // إرسال البيانات إلى الباك اند
-    fetch("/api/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify({
-            name, email, password, country, phone
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.status === "ok") {
-            window.location.href = "verify-phone.html";
-        } else {
-            alert(data.message);
-        }
-    });
-}
-</script>
+<footer>
+  <p>© 2025 SmartBot</p>
+</footer>
 
 </body>
 </html>
