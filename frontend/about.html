@@ -1,24 +1,40 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>{{ 'من نحن' if lang=='ar' else 'About' }}</h1>
-<p class="lead">
-  {{ 'SmartBot AI منصة تداول ذكية بالذكاء الاصطناعي، توفر تحليلات وإشارات وتداول آلي بواجهة بسيطة.' 
-     if lang=='ar' else 
-     'SmartBot AI is an AI-driven trading platform offering analysis, signals, and auto-trading with a simple UI.' }}
-</p>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>من نحن | SmartBot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
 
-<section class="cards">
-  <article class="card">
-    <h3>{{ 'مهمتنا' if lang=='ar' else 'Our Mission' }}</h3>
-    <p>{{ 'تمكين الجميع من أدوات تداول احترافية مدعومة بالذكاء الاصطناعي.' if lang=='ar' else 'Empower everyone with pro AI trading tools.' }}</p>
-  </article>
-  <article class="card">
-    <h3>{{ 'قيمنا' if lang=='ar' else 'Values' }}</h3>
-    <p>{{ 'الشفافية، الأمان، الأداء.' if lang=='ar' else 'Transparency, Security, Performance.' }}</p>
-  </article>
-  <article class="card">
-    <h3>Tech</h3>
-    <p>FastAPI, Python, SQLite, OAuth, Telegram, OpenAI.</p>
-  </article>
-</section>
-{% endblock %}
+<header class="header">
+  <div class="logo">SmartBot</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="pricing.html">الخطط</a>
+    <a href="affiliate.html">الشركاء</a>
+    <a href="chat.html">الدردشة</a>
+    <a href="login.html" class="btn">تسجيل الدخول</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>من نحن</h1>
+    <p>منصة تحليل العملات الرقمية، الذهب، والأسهم مع نظام أدوات حديثة للمستثمرين والمتداولين.</p>
+  </section>
+
+  <section class="content-box">
+    <p>
+      نوفّر أدوات تحليل متعددة تشمل مراقبة حركة السوق، متابعة الحيتان، نظام تداول ذكي،
+      ودردشة خاصة لتجربة تداول سلسة وآمنة.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 SmartBot – جميع الحقوق محفوظة</p>
+</footer>
+
+</body>
+</html>
