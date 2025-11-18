@@ -1,8 +1,51 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>{{ 'سياسة الخصوصية' if lang=='ar' else 'Privacy Policy' }}</h1>
-<div class="card">
-  <p>{{ 'نحترم خصوصيتك. نجمع بيانات الحد الأدنى اللازمة لتشغيل الخدمة (مثل البريد الإلكتروني) ونحفظ كلمات المرور مشفرة. لا نبيع بياناتك لطرف ثالث.' if lang=='ar' else 'We respect your privacy. We collect minimal data (e.g., email) to operate the service and store passwords hashed. We do not sell your data.' }}</p>
-  <p>{{ 'قد نستخدم ملفات تعريف الارتباط لتحسين التجربة. يمكنك طلب حذف حسابك وبياناتك.' if lang=='ar' else 'We may use cookies to improve UX. You can request account/data deletion.' }}</p>
+<h1>سياسة الخصوصية</h1>
+
+<div class="lang-ar">
+<h2>سياسة الخصوصية</h2>
+<p>
+نحن نحترم خصوصيتك ونلتزم بحماية بياناتك. يتم جمع المعلومات الأساسية فقط لأغراض
+تسجيل الدخول، تحسين الخدمات، وتتبع الاستخدام داخل المنصة.
+</p>
+
+<h3>البيانات التي نجمعها</h3>
+<ul>
+  <li>البريد الإلكتروني</li>
+  <li>اسم المستخدم</li>
+  <li>سجل الاستخدام داخل المنصة</li>
+</ul>
+
+<h3>حماية البيانات</h3>
+<p>
+نستخدم بروتوكولات حماية حديثة لضمان عدم مشاركة بياناتك مع أي طرف ثالث.
+</p>
+
+<h3>حذف الحساب</h3>
+<p>
+يمكن للمستخدم طلب حذف جميع بياناته نهائيًا عبر صفحة الاتصال.
+</p>
 </div>
-{% endblock %}
+
+<div class="lang-en">
+<h2>Privacy Policy</h2>
+<p>
+We respect your privacy and are committed to protecting your data. Only essential information is collected for login,
+service optimization, and usage tracking.
+</p>
+
+<h3>Data We Collect</h3>
+<ul>
+  <li>Email Address</li>
+  <li>Username</li>
+  <li>In-platform activity logs</li>
+</ul>
+
+<h3>Data Protection</h3>
+<p>
+We use modern security protocols to ensure your information is never shared with third parties.
+</p>
+
+<h3>Account Deletion</h3>
+<p>
+Users may request complete account removal at any time via the contact page.
+</p>
+</div>
