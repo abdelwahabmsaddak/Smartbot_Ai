@@ -1,163 +1,314 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartBot AI Trader | تحليل ذكي وتداول آمن</title>
-
-    <!-- ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- MAIN STYLE -->
-    <link rel="stylesheet" href="assets/css/main.css">
-</head>
-
-<body>
-
-    <!-- ====================== NAVBAR ========================== -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">
-                <i class="fa-solid fa-robot"></i>
-                SmartBot <span>AI Trader</span>
-            </div>
-
-            <nav>
-                <a href="#analysis">التحليل</a>
-                <a href="#blog">المدونة</a>
-                <a href="#pricing">الباقات</a>
-                <a href="how_it_works.html">كيف يعمل</a>
-                <a href="contact.html">اتصل بنا</a>
-            </nav>
-
-            <a href="login.html" class="btn-login">تسجيل الدخول</a>
+  <head>
+    <meta charset="UTF-8" />
+    <title>SmartBot | تحليلات العملات و الذهب و الأسهم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="منصة واحدة لتحليل العملات الرقمية والذهب والأسهم، مع تداول آلي ودردشة فورية ولوحة متابعة حركات كبار المتداولين ومدونة توليد محتوى."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- الهيدر -->
+    <header>
+      <div class="container navbar">
+        <div class="logo">
+          <div class="logo-icon">S</div>
+          <div>
+            <div class="logo-text-main">SmartBot</div>
+            <div class="logo-text-sub">منصّة تحليلات وتداول متكاملة</div>
+          </div>
         </div>
+
+        <nav class="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="analyze.html">التحليل</a>
+          <a href="pricing.html">الأسعار</a>
+          <a href="affiliate.html">الأفلييت</a>
+          <a href="blog.html">المدونة</a>
+          <a href="about.html">من نحن</a>
+          <a href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+          <a href="register.html" class="btn btn-primary">ابدأ مجاناً</a>
+        </div>
+      </div>
     </header>
 
-    <!-- ====================== MARKET BAR ========================== -->
-    <div class="market-bar">
-        <span>BTC • <span id="btc">--</span></span>
-        <span>ETH • <span id="eth">--</span></span>
-        <span>Gold • <span id="gold">--</span></span>
-        <span>S&P500 • <span id="sp">--</span></span>
-    </div>
-
-    <!-- ====================== HERO ========================== -->
+    <!-- الهيرو -->
     <section class="hero">
-        <div class="container">
-            <h1>تحليل ذكي – تداول آمن <br> نتائج سريعة</h1>
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            شهر مجاني يشمل كل الميزات – ثم 29$ فقط
+          </div>
+          <h1 class="hero-title">
+            منصة واحدة لتحليل
+            <span>العملات الرقمية، الذهب و الأسهم</span>
+          </h1>
+          <p class="hero-subtitle">
+            راقب السوق في مكان واحد: تحليلات فورية للعملات الرقمية، الذهب والأسهم،
+            تداول آلي مضبوط، دردشة مدمجة بأسلوب المراسلة، متابعة لحركات كبار
+            المتداولين، ومدونة توليد محتوى جاهز للنشر.
+          </p>
 
-            <p class="hero-text">
-                SmartBot AI Trader يقدم لك التحليل الفوري للعملات الرقمية والأسهم والذهب
-                مع توصيات دقيقة 24/7 بذكاء اصطناعي متطور.
+          <div class="hero-actions">
+            <a href="register.html" class="btn btn-primary">
+              جرّب شهر مجاني الآن
+            </a>
+            <a href="pricing.html" class="btn btn-outline">
+              مشاهدة التفاصيل الكاملة للباقة
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="hero-meta-dot"></span>
+              تحليلات للعملات الرقمية والذهب والأسهم في لوحة واحدة
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-dot"></span>
+              دردشة خاصة داخل المنصّة بأسلوب تطبيقات المراسلة
+            </div>
+            <div class="hero-meta-item">
+              <span class="hero-meta-dot"></span>
+              تتبع لحركات كبار المحافظ (الـ &quot;حيتان&quot;)
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-label">وضع السوق – العملات</div>
+              <div class="metric-value">تحليل مباشر للعملات المختارة</div>
+              <div class="metric-pill">تحديثات مستمرة</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">الذهب</div>
+              <div class="metric-value">منطقة سعرية مع تعليق تحليلي</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">الأسهم</div>
+              <div class="metric-value">قوائم أسهم مختارة مع إشارات دخول وخروج</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">أنماط التداول الآلي</div>
+              <div class="metric-value">استراتيجيات جاهزة للتفعيل</div>
+            </div>
+          </div>
+
+          <div class="chat-preview">
+            <div class="chat-line">
+              <span class="chat-user">أنت:</span>
+              تحليل لعملة محددة مع الذهب في نفس اليوم؟
+            </div>
+            <div class="chat-line">
+              <span class="chat-bot">SmartBot:</span>
+              يتم عرض الاتجاه العام، مناطق الدعم والمقاومة، وإشارة توضيحية لكل من
+              العملة والذهب، مع إمكانية تفعيل تداول آلي بحسب الخطة المختارة.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- المميزات الرئيسية -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">ما الذي تحصل عليه؟</div>
+          <h2 class="section-title">كل أدوات السوق اليوم في واجهة واحدة</h2>
+          <p class="section-subtitle">
+            ركّز على القرارات بدلاً من تضييع الوقت بين منصات مختلفة.  
+            كل شيء مجمّع: تحليلات العملات الرقمية والذهب والأسهم، تداول آلي،
+            دردشة، وتتبع حركة المحافظ الكبيرة ومدونة توليد محتوى.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3 class="feature-title">تحليل العملات الرقمية</h3>
+            <p class="feature-text">
+              صفحات مخصّصة لتحليل العملات الرقمية التي تختارها مع عرض الاتجاه،
+              المستويات المهمة، وتعليقات مكتوبة قابلة للحفظ والرجوع لها.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">متابعة الذهب</h3>
+            <p class="feature-text">
+              قسم مستقل لسعر الذهب مع توضيح مناطق السعر المهمة وتعليق مختصر عن
+              الحالة الحالية وإمكانية مقارنة حركته مع عملات محددة.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">لوحة للأسهم</h3>
+            <p class="feature-text">
+              قائمة أسهم مختارة مع مؤشرات بسيطة، عرض لحركة السعر، وتنبيهات عن قرب
+              كسر مستويات معيّنة يمكنك تخصيصها.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">تداول آلي قابل للتحكم</h3>
+            <p class="feature-text">
+              إمكانيّة تفعيل استراتيجيات تداول محفوظة مسبقاً، مع إدارة حجم الصفقة
+              ونقاط الإيقاف بسهولة من داخل اللوحة.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">دردشة خاصة بالموقع</h3>
+            <p class="feature-text">
+              منطقة دردشة بأسلوب المراسلة الفورية داخل المنصّة، لكتابة أسئلتك،
+              ملاحظاتك، ومتابعة ردودك في سجل واضح مرتب.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <h3 class="feature-title">مدونة توليد محتوى</h3>
+            <p class="feature-text">
+              إنشاء تدوينات جاهزة للنشر حول العملات، الذهب والأسهم بضغطة واحدة،
+              مع إمكانية تعديل النص قبل حفظه في المدونة الخاصة بك.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم التحليل والتتبّع -->
+    <section class="section">
+      <div class="container analysis-grid">
+        <div class="analysis-box">
+          <h3 class="feature-title">منطقة التحليل</h3>
+          <p class="feature-text">
+            صفحة التحليل تجمع لك العملات الرقمية التي تتابعها، الذهب، وبعض
+            الأسهم التي تضيفها بنفسك. تكتب ما تريد تحليله، تختار الأزواج أو
+            الأصول، وتحصل على ملخّصات جاهزة تحفظها في حسابك.
+          </p>
+
+          <div class="tag-list">
+            <span class="tag badge-soft">تحليل العملات الرقمية</span>
+            <span class="tag badge-soft">تحليل الذهب</span>
+            <span class="tag badge-soft">تحليل الأسهم</span>
+            <span class="tag">ملاحظات محفوظة</span>
+          </div>
+        </div>
+
+        <div class="analysis-box">
+          <h3 class="feature-title">تتبّع حركات المحافظ الكبيرة</h3>
+          <p class="feature-text">
+            قسم تتبع الحيتان يعرض لك قوائم بحركات المحافظ الكبيرة على العملات
+            التي تهتم بها. يتم تلخيص أهم التحركات في شكل بطاقات سهلة القراءة مع
+            إمكانية حفظ التحركات التي تهمك.
+          </p>
+          <div class="tag-list">
+            <span class="tag">قوائم حركات كبيرة</span>
+            <span class="tag">ملخّصات قصيرة</span>
+            <span class="tag">تصفيه حسب العملة</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- التسعيرة + الأفلييت -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">الاشتراك والتعاون</div>
+          <h2 class="section-title">شهر مجاني كامل، ثم اشتراك واحد واضح</h2>
+          <p class="section-subtitle">
+            لا خطط معقّدة ولا مستويات مربكة. حساب واحد يشمل جميع الميزات، مع
+            برنامج شراكة بسيط لمن يريد الترويج للمنصّة.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- التسعيرة -->
+          <div class="pricing-card">
+            <h3 class="feature-title">الاشتراك الأساسي</h3>
+            <p class="feature-text">
+              اشتراك واحد يفتح لك جميع الأقسام: التحليل، الدردشة، التداول الآلي،
+              تتبع حركة المحافظ الكبيرة، والمدونة.
             </p>
 
-            <a href="register.html" class="btn-primary hero-btn">جرّب الشهر المجاني الآن</a>
-
-            <!-- SEARCH BOX -->
-            <div class="search-box">
-                <input type="text" placeholder="ابحث عن عملة – سهم – ذهب…" id="searchInput">
-                <button onclick="searchNow()">بحث</button>
+            <div class="price">0$ <span>/ أول شهر</span></div>
+            <div class="price-note">
+              أول شهر مجاني بالكامل مع جميع الميزات، ثم 29$ فقط بعد ذلك.
             </div>
+
+            <div class="price">
+              29$ <span>/ شهرياً بعد الفترة المجانية</span>
+            </div>
+
+            <ul class="benefits-list">
+              <li>تحليل العملات الرقمية والذهب والأسهم في لوحة واحدة.</li>
+              <li>تفعيل استراتيجيات تداول آلي من داخل الحساب.</li>
+              <li>دردشة خاصة بالمستخدم بأسلوب تطبيقات المراسلة.</li>
+              <li>تتبّع حركات المحافظ الكبيرة على العملات التي تتابعها.</li>
+              <li>إنشاء تدوينات جاهزة مع إمكانية التعديل والحفظ.</li>
+            </ul>
+
+            <a href="register.html" class="btn btn-primary" style="width: 100%; justify-content: center;">
+              ابدأ شهر التجربة المجانية الآن
+            </a>
+          </div>
+
+          <!-- الأفلييت -->
+          <div class="affiliate-card">
+            <h3 class="feature-title">برنامج الشركاء (أفلييت)</h3>
+            <p class="feature-text">
+              إن كنت تملك جمهوراً أو أصدقاء مهتمين بالعملات أو بالتحليل، يمكنك
+              التسجيل كشريك والحصول على عمولة دورية مقابل كل مشترك جديد.
+            </p>
+
+            <div class="affiliate-highlight">
+              اربح <span>60%</span> من قيمة الاشتراك
+            </div>
+            <p class="feature-text">
+              عن كل مستخدم يسجّل ويصبح اشتراكه مدفوعاً من خلال رابطك الخاص،
+              تحصل على 60% من قيمة اشتراكه.
+            </p>
+
+            <ul class="affiliate-steps">
+              <li>1. سجّل حساباً في المنصّة.</li>
+              <li>2. افتح صفحة برنامج الشركاء داخل حسابك.</li>
+              <li>3. انسخ رابطك الخاص وشاركه مع الآخرين.</li>
+              <li>
+                4. عن كل اشتراك مدفوع يأتي من رابطك، تُضاف عمولتك إلى رصيدك.
+              </li>
+            </ul>
+
+            <a href="affiliate.html" class="btn btn-outline" style="margin-top: 0.8rem;">
+              تفاصيل برنامج الشركاء
+            </a>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- ====================== FEATURES ========================== -->
-    <section id="analysis" class="features container">
-
-        <div class="feature">
-            <i class="fa-solid fa-coins"></i>
-            <h3>تحليل العملات الرقمية</h3>
-            <p>تحليل دقيق لأكثر من 200 عملة – إشارات شراء وبيع فورية.</p>
-            <a href="crypto_analysis.html" class="more">ابدأ الآن</a>
+    <!-- الفوتر -->
+    <footer>
+      <div class="container footer-grid">
+        <div>© <span id="year"></span> SmartBot. جميع الحقوق محفوظة.</div>
+        <div class="footer-links">
+          <a href="about.html">من نحن</a>
+          <a href="pricing.html">الأسعار</a>
+          <a href="affiliate.html">الأفلييت</a>
+          <a href="blog.html">المدونة</a>
+          <a href="contact.html">تواصل معنا</a>
         </div>
-
-        <div class="feature">
-            <i class="fa-solid fa-chart-line"></i>
-            <h3>تحليل الذهب والأسهم</h3>
-            <p>تحليل احترافي لحركة الذهب والأسهم العالمية.</p>
-            <a href="gold_stocks.html" class="more">حلل الآن</a>
-        </div>
-
-        <div class="feature">
-            <i class="fa-solid fa-fish-fins"></i>
-            <h3>تتبع الحيتان</h3>
-            <p>تعرف على عمليات الضخ والبيع الكبيرة في السوق.</p>
-            <a href="whales.html" class="more">تتبع الآن</a>
-        </div>
-
-    </section>
-
-    <!-- ====================== BLOG PREVIEW ========================== -->
-    <section id="blog" class="blog-preview container">
-        <h2>آخر التدوينات</h2>
-
-        <div class="posts">
-            <div class="post">
-                <h3>تحليل BTC اليوم</h3>
-                <p>حركة صاعدة قوية متوقعة خلال الساعات القادمة…</p>
-            </div>
-
-            <div class="post">
-                <h3>أفضل فرص السوق</h3>
-                <p>3 عملات جاهزة للانفجار حسب الذكاء الاصطناعي…</p>
-            </div>
-
-            <div class="post">
-                <h3>الذهب إلى أين؟</h3>
-                <p>تحليل جديد لاتجاه الذهب الأسبوع القادم…</p>
-            </div>
-        </div>
-
-        <a href="blog.html" class="btn-secondary">عرض المزيد</a>
-    </section>
-
-    <!-- ====================== PRICING ========================== -->
-    <section id="pricing" class="pricing container">
-        <h2>الباقات</h2>
-
-        <div class="plans">
-
-            <div class="plan">
-                <h3>الأساسية</h3>
-                <div class="price">19$</div>
-                <p>تحليل العملات الرقمية فقط</p>
-                <a href="payment.html" class="btn-primary">اشترك الآن</a>
-            </div>
-
-            <div class="plan popular">
-                <h3>المتقدمة</h3>
-                <div class="price">29$</div>
-                <p>العملات + الأسهم + الذهب</p>
-                <a href="payment.html" class="btn-primary">اشترك الآن</a>
-            </div>
-
-            <div class="plan">
-                <h3>الشاملة</h3>
-                <div class="price">39$</div>
-                <p>كل شيء + تتبع الحيتان</p>
-                <a href="payment.html" class="btn-primary">اشترك الآن</a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ====================== CHATBOT ========================== -->
-    <div class="chatbot" id="chatbot">
-        <div class="chat-header" onclick="toggleChat()">
-            <span>مساعد SmartBot 🤖</span>
-        </div>
-
-        <div class="chat-body" id="chatBody"></div>
-
-        <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="اكتب رسالتك…">
-            <button onclick="sendMessage()">إرسال</button>
-        </div>
-    </div>
-
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/chatbot.js"></script>
-
-</body>
+      </div>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
 </html>
