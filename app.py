@@ -3,7 +3,7 @@
 # =========================================================
 
 from flask import Flask, request, jsonify, render_template
-from ai_engine import analyze_with_ai
+from backend.ai_engine import analyze_with_ai
 from trading_engine import analyze_market
 from whales_tracker import get_whales_data
 import os
