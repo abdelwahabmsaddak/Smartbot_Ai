@@ -77,6 +77,13 @@
           </div>
         </div>
       </div>
+      <section class="affiliate" id="affiliate">
+  <div class="container">
+    <h2>برنامج الشركاء</h2>
+    <p>انضم إلى شركائنا واحصل على 60 % من كل اشتراك يتم عبر رابطك الخاص.</p>
+    <a href="affiliate.html" class="btn">انضم الآن</a>
+  </div>
+</section>
 
       <!-- عمود البطاقة / الشكل المرئي -->
       <div class="hero-card">
@@ -349,5 +356,31 @@
     // لتحديث السنة تلقائيًا في الفوتر
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <!-- Chatbot -->
+<div id="chatbot-icon" onclick="toggleChat()">
+  💬
+</div>
+
+<div id="chatbot-box" class="hidden">
+  <div id="chatbot-header">محادثة سريعة</div>
+  <div id="chatbot-messages"></div>
+  <input id="chatbot-input" type="text" placeholder="اكتب رسالتك..." />
+</div>
+
+<script>
+function toggleChat() {
+  document.getElementById('chatbot-box').classList.toggle('hidden');
+}
+document.getElementById('chatbot-input').addEventListener('keypress', e=>{
+  if(e.key==='Enter'){
+    const msg = e.target.value.trim();
+    if(!msg) return;
+    const box=document.getElementById('chatbot-messages');
+    box.innerHTML += `<div class="msg user">${msg}</div>`;
+    e.target.value='';
+    setTimeout(()=>box.innerHTML += `<div class="msg bot">تم استلام رسالتك 💬</div>`,600);
+  }
+});
+</script>
 </body>
 </html>
